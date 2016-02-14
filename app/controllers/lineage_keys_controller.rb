@@ -1,0 +1,2 @@
+class LineageKeysController < ApplicationController
+end
