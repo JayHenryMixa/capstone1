@@ -1,0 +1,23 @@
+<h3>Edit Existing Specimens</h3>
+  <%= form_tag "/specimens/#{@specimen.id}", method: :patch do %>
+    <h3>
+      <div>
+        <%= label_tag :name %>
+        <%= text_field_tag :name, @specimen.name %>
+      </div>
+
+
+        <div>
+          <%= label_tag :scientific_name %>
+          <%= text_field_tag :scientific_name, @specimen.scientific_name %>
+        </div>
+        
+          <div>
+            <%= label_tag :designation %>
+            <%= text_field_tag :designation, @specimen.designation %>
+          </div>
+
+    
+      <%= submit_tag "Edit Specimens" %>
+    </h3>
+  <% end %>

@@ -1,0 +1,8 @@
+<h1>Request information</h1>
+
+  <h3>Description: <%= @request.description %><h3>
+  <h3>Price: <%= @request.price %></h3>
+  <h3>Location: <%= @request.location %></h3>
+  <h3>Ships? <%= @request.shipping %></h3>
+
+    <%= link_to "delete", "/requests/#{@request.id}", method: :delete, data: {confirm: "Are you sure?"} %>

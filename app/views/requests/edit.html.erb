@@ -1,0 +1,29 @@
+<h1>Edit Request</h1>
+<%= form_tag "/requests/#{@request.id}", method: :patch do %>
+<h3>
+    <div>
+      <%= label_tag :description %>
+      <%= text_field_tag :description, @request.description %>
+    </div>
+
+      
+    <div>
+      <%= label_tag :price %>
+      <%= text_field_tag :price, @request.price %>
+    </div>
+
+
+      <div>
+        <%= label_tag :location %>
+        <%= text_field_tag :location, @request.location %>
+      </div>
+      
+        <div>
+          <%= label_tag :shipping %>
+          <%= text_field_tag :shipping, @request.shipping %>
+        </div>
+
+        
+    <%= submit_tag "Edit Request" %>
+  </h3>
+<% end %>

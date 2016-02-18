@@ -1,0 +1,15 @@
+<h1>Index of Requests posted by Users</h1>
+<hr>
+<h3>
+  <div>
+    <% @requests.each do |request| %>
+      <h3>Description: <%= request.description %><h3>
+      <h3>Price: <%= request.price %></h3>
+      <h3>Location: <%= request.location %></h3>
+      <h3>Ships? <%= request.shipping %></h3>
+      
+      <hr>
+    <% end %>
+  </div>
+</h3>
+    

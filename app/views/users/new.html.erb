@@ -1,29 +1,24 @@
 <h1>Join Fragit</h1>
-<%= form_tag '/users', method: :post do %>
-<h3>
-    <div>
-      <%= label_tag :email %>
-      <%= text_field_tag :email %>
-    </div>
-
-      
-    <div>
-      <%= label_tag :password %>
-      <%= text_field_tag :password %>
-    </div>
-
-
+  <%= form_tag '/users', method: :post do %>
+    <h3>
       <div>
-        <%= label_tag :first_name %>
-        <%= text_field_tag :first_name %>
+        <%= label_tag :email %>
+        <%= text_field_tag :email %>
       </div>
-      
+
+
         <div>
-          <%= label_tag :last_name %>
-          <%= text_field_tag :last_name %>
+          <%= label_tag :first_name %>
+          <%= text_field_tag :first_name %>
         </div>
+        
+          <div>
+            <%= label_tag :last_name %>
+            <%= text_field_tag :last_name %>
+          </div>
 
-  <%= submit_tag "Join" %>
-
-</h3>
-<% end %>
+    
+      <%= submit_tag "Join" %>
+    </h3>
+  <% end %>
+  

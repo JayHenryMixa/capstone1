@@ -1,0 +1,34 @@
+<h1>Add New Item</h1>
+  
+  <%= form_tag '/items', method: :post do %>
+  <h3>
+      <div>
+        <%= label_tag :description %>
+        <%= text_field_tag :description %>
+      </div>
+
+        
+      <div>
+        <%= label_tag :price %>
+        <%= text_field_tag :price %>
+      </div>
+
+
+        <div>
+          <%= label_tag :location %>
+          <%= text_field_tag :location %>
+        </div>
+        
+          <div>
+            <%= label_tag :shipping %>
+            <%= text_field_tag :shipping %>
+          </div>
+
+            <div>
+              <%= label_tag :webcam_source %>
+              <%= text_field_tag :webcam_source %>
+            </div>
+
+      <%= submit_tag "Add Item" %>
+    </h3>
+  <% end %>

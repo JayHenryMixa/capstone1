@@ -1,0 +1,33 @@
+<h1>Edit Item</h1>
+<%= form_tag "/items/#{@item.id}", method: :patch do %>
+<h3>
+    <div>
+      <%= label_tag :description %>
+      <%= text_field_tag :description, @item.description %>
+    </div>
+
+      
+    <div>
+      <%= label_tag :price %>
+      <%= text_field_tag :price, @item.price %>
+    </div>
+
+
+      <div>
+        <%= label_tag :location %>
+        <%= text_field_tag :location, @item.location %>
+      </div>
+      
+        <div>
+          <%= label_tag :shipping %>
+          <%= text_field_tag :shipping, @item.shipping %>
+        </div>
+
+          <div>
+            <%= label_tag :webcam_source %>
+            <%= text_field_tag :webcam_source, @item.webcam_source %>
+          </div>
+
+    <%= submit_tag "Edit Item" %>
+  </h3>
+<% end %>

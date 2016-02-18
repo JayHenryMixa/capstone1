@@ -1,0 +1,30 @@
+<h1>Add a New Request</h1>
+  
+  <%= form_tag '/requests', method: :post do %>
+  <h3>
+      <div>
+        <%= label_tag :description %>
+        <%= text_field_tag :description %>
+      </div>
+
+        
+      <div>
+        <%= label_tag :price %>
+        <%= text_field_tag :price %>
+      </div>
+
+
+        <div>
+          <%= label_tag :location %>
+          <%= text_field_tag :location %>
+        </div>
+        
+          <div>
+            <%= label_tag :shipping %>
+            <%= text_field_tag :shipping %>
+          </div>
+
+
+      <%= submit_tag "Submit Request" %>
+    </h3>
+  <% end %>

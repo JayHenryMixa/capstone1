@@ -1,0 +1,23 @@
+<h3>Add New Specimens</h3>
+  <%= form_tag '/specimens', method: :post do %>
+    <h3>
+      <div>
+        <%= label_tag :name %>
+        <%= text_field_tag :name %>
+      </div>
+
+
+        <div>
+          <%= label_tag :scientific_name %>
+          <%= text_field_tag :scientific_name %>
+        </div>
+        
+          <div>
+            <%= label_tag :designation %>
+            <%= text_field_tag :designation %>
+          </div>
+
+    
+      <%= submit_tag "Add Specimens" %>
+    </h3>
+  <% end %>

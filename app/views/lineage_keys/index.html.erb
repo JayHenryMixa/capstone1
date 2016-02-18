@@ -1,0 +1,14 @@
+<h1>Lineages of Specimens Held By Fragit Users</h1>
+
+<h3>
+  <% @lineage_keys.each do |lineage_key| %>
+    <h3>Date Acquired: <%= lineage_key.date_acquired %></h3>
+    <h3>Acquired from: <%= lineage_key.acquired_from %></h3>
+    <h3>Date Acquired: <%= lineage_key.number_of_divisions %></h3>
+    <hr>
+  <% end %>
+</h3>
+
+
+
+

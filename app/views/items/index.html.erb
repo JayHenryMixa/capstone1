@@ -1,0 +1,15 @@
+<h1>Index of Items posted by Users</h1>
+<hr>
+<h3>
+  <div>
+    <% @items.each do |item| %>
+      <h3>Description: <%= item.description %><h3>
+      <h3>Price: <%= item.price %></h3>
+      <h3>Location: <%= item.location %></h3>
+      <h3>Ships? <%= item.shipping %></h3>
+      <%= item.webcam_source %></h3>
+      <hr>
+    <% end %>
+  </div>
+</h3>
+    

@@ -15,7 +15,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(email: params[:email], first_name: params[:first_name], last_name: params[:last_name])
+    @user = User.create({email: params[:email], 
+      first_name: params[:first_name], 
+      last_name: params[:last_name]})
   end 
 
   def edit 
@@ -23,8 +25,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    # @user = User.find(params[:id])
-    @user = User.update(email: params[:email], first_name: params[:first_name], last_name: params[:last_name])
+    @user = User.update({email: params[:email], 
+      first_name: params[:first_name], 
+      last_name: params[:last_name]})
   
     render :edit
   end
@@ -34,7 +37,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
 
-    redirect_to '/'
+    redirect_to '/users'
   end
 
 
