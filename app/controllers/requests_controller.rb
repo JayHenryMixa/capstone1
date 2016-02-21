@@ -40,7 +40,7 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     @request.destroy
 
-    redirect_to'/requests'
+    redirect_to '/requests'
   end
   
 end

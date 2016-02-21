@@ -2,15 +2,15 @@ Rails.application.routes.draw do
 
 
   devise_for :users
-  root 'users#index'
+  root 'profiles#index'
 
-  get '/users' => 'users#index'
-  get '/users/new' => 'users#new'
-  post '/users' => 'users#create'
-  get '/users/:id' => 'users#show'
-  get '/users/:id/edit' => 'users#edit'
-  patch '/users/:id' => 'users#update'
-  delete '/users/:id' => 'user#destroy'
+  get '/profiles' => 'profiles#index'
+  get '/profiles/new' => 'profiles#new'
+  post '/profiles' => 'profiles#create'
+  get '/profiles/:id' => 'profiles#show'
+  get '/profiles/:id/edit' => 'profiles#edit'
+  patch '/profiles/:id' => 'profiles#update'
+  delete '/profiles/:id' => 'profiles#destroy'
 
   get '/items' => 'items#index'
   get '/items/new' => 'items#new'
@@ -38,7 +38,20 @@ Rails.application.routes.draw do
   patch '/specimens/:id' => 'specimens#update'
   delete '/specimens/:id' => 'specimens#destroy'
 
-  get '/lineage_keys' => 'lineage_keys#index'
-  #need to complete lineage key
+  get '/holders' => 'holders#index'
+  get '/holders/new' => "holders#new"
+  post '/holders' => "holders#create"
+  get '/holders/:id' => "holders#show"
+  get '/holders/:id/edit' => "holders#edit"
+  patch '/holders/:id' => "holders#update"
+  delete '/holders/:id' => 'holders#destroy'
+
+  get '/images' => 'images#index'
+  get '/images/new' => "images#new"
+  post '/images' => "images#create"
+  get '/images/:id' => "images#show"
+  get '/images/:id/edit' => "images#edit"
+  patch '/images/:id' => "images#update"
+  delete '/images/:id' => 'images#destroy'
 
 end

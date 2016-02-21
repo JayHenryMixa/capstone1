@@ -1,0 +1,15 @@
+<h1>Lineages of Specimens Held By Fragit Users</h1>
+  <h3>About... the future of the hobby is rooted firmly in our ability to aquaculture corals. Our Lineage tracking system was concieved with the aim of tracking specific strains of coral as they move through the hobby. The end goal is two-fold; first, we'd like see how strains adapt to captivity. Secondly, Fragit is a tool to verify the lineage of available specimens.</h3>
+  <hr>
+
+<h3>
+  <div>
+    <% @holders.each do |holder| %>
+      <h3>User: <a href="/holders/<%= holder.id %>"><%= holder.user_full_name %></a></h3>
+      <h3>Specimen ID: <a href="/specimens/#{@specimen.id} %>"><%= holder.specimen.name %></a></h3>
+      <h3>Date Acquired: <%= holder.date_acquired %></h3>
+      <h3>Acquired from: <%= holder.acquired_from %></h3>
+      <hr>
+    <% end %>
+  </div>
+</h3>

@@ -1,0 +1,28 @@
+<h3>Add New Holder</h3>
+<%= form_tag '/holders', method: :post do %>
+
+  <h3>
+    <div>
+      <%= label_tag :user_id %>
+      <%= text_field_tag :user_id %>
+    </div>
+
+    <div>
+      <%= label_tag :specimen_id %>
+      <%= text_field_tag :specimen_id %>
+    </div>
+
+      <div>
+        <%= label_tag :date_acquired %>
+        <%= text_field_tag :date_acquired %>
+      </div>
+      
+        <div>
+          <%= label_tag :acquired_from %>
+          <%= text_field_tag :acquired_from %>
+        </div>
+
+  
+    <%= submit_tag "Add Specimen Holder" %>
+  </h3>
+<% end %>

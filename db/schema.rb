@@ -11,18 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218001224) do
+ActiveRecord::Schema.define(version: 20160221071710) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content",    limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id",    limit: 4
+    t.integer  "image_id",   limit: 4
+  end
+
+  create_table "holders", force: :cascade do |t|
+    t.integer  "user_id",       limit: 4
+    t.integer  "specimen_id",   limit: 4
+    t.string   "date_acquired", limit: 255
+    t.string   "acquired_from", limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "images", force: :cascade do |t|
-    t.text     "file",       limit: 65535
+    t.text     "file",          limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "url",           limit: 65535
+    t.integer  "imagable_id",   limit: 4
+    t.text     "imagable_type", limit: 65535
   end
 
   create_table "items", force: :cascade do |t|
@@ -33,14 +47,7 @@ ActiveRecord::Schema.define(version: 20160218001224) do
     t.string   "webcam_source", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "lineage_keys", force: :cascade do |t|
-    t.string   "date_acquired",       limit: 255
-    t.string   "acquired_from",       limit: 255
-    t.string   "number_of_divisions", limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "user_id",       limit: 4
   end
 
   create_table "requests", force: :cascade do |t|
@@ -50,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160218001224) do
     t.string   "shipping",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id",     limit: 4
   end
 
   create_table "specimens", force: :cascade do |t|

@@ -1,9 +1,11 @@
 <h1>Specimen Index</h1>
+
+<hr>
 <hr>
 <h3>
   <div>
   <% @specimens.each do |specimen| %>
-    <h3><%= specimen.name %></h3>
+    <h3><a href="/specimens/<%= specimen.id %>"><%= specimen.name %></a></h3>
     <h3><%= specimen.scientific_name %></h3>
     <h3><%= specimen.designation %></h3>
     <hr>

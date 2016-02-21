@@ -1,0 +1,9 @@
+<h3>All Images</h3>
+
+<hr>
+  <h3>
+    <% @images.each do |image| %>
+      <h3><a href="/images/<%= image.id %>"><img src="<%= image.url %>"></a></h3>
+    <% end %>
+  </h3>
+    
