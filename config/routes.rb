@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   get '/items/:id/edit' => 'items#edit'
   patch '/items/:id' => 'items#update'
   
+  post 'search' => "items#search"
+
+
   delete '/items/:id' => 'items#destroy'
 
   get '/requests' => 'requests#index'

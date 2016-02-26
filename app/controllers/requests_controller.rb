@@ -1,5 +1,7 @@
 class RequestsController < ApplicationController
 
+  before_action :authenticate_user!, except:[:index, :show, :search]
+  
   def index
     @requests = Request.all
   end
@@ -10,13 +12,21 @@ class RequestsController < ApplicationController
 
   def new
     @request = Request.new
+
+    @image = Image.new
   end
 
   def create
-    @request = Request.create({description: params[:description], 
+    @request = Request.create({name: params[:name],
+      description: params[:description], 
       price: params[:price], 
       location: params[:location], 
-      shipping: params[:shipping]})
+      shipping: params[:shipping],
+      user_id: current_user.id})
+
+    @image = Image.create(url: params[:image],
+      imagable_id: @request.id,
+      imagable_type: @request.class.name)
 
     redirect_to "/requests/#{@request.id}"
   end
@@ -28,7 +38,8 @@ class RequestsController < ApplicationController
   def update
     @request = Request.find(params[:id])
 
-    @request.update({description: params[:description], 
+    @request.update({name: params[:name],
+      description: params[:description], 
       price: params[:price], 
       location: params[:location], 
       shipping: params[:shipping]})

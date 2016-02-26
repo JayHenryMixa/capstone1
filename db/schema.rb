@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221071710) do
+ActiveRecord::Schema.define(version: 20160225221040) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content",    limit: 65535
@@ -31,12 +31,12 @@ ActiveRecord::Schema.define(version: 20160221071710) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.text     "file",          limit: 65535
+    t.integer  "user_id",       limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "url",           limit: 65535
     t.integer  "imagable_id",   limit: 4
-    t.text     "imagable_type", limit: 65535
+    t.string   "imagable_type", limit: 255
   end
 
   create_table "items", force: :cascade do |t|
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20160221071710) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id",       limit: 4
+    t.integer  "image_id",      limit: 4
+    t.string   "name",          limit: 255
   end
 
   create_table "requests", force: :cascade do |t|
@@ -58,6 +60,8 @@ ActiveRecord::Schema.define(version: 20160221071710) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id",     limit: 4
+    t.integer  "image_id",    limit: 4
+    t.string   "name",        limit: 255
   end
 
   create_table "specimens", force: :cascade do |t|
@@ -83,6 +87,7 @@ ActiveRecord::Schema.define(version: 20160221071710) do
     t.datetime "updated_at"
     t.string   "first_name",             limit: 255
     t.string   "last_name",              limit: 255
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

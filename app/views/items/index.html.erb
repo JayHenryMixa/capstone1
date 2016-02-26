@@ -1,14 +1,18 @@
 <h1>Index of Items posted by Users</h1>
 
-<h3>
+<h4><a href="/items/new">Post a New Item</a></h4>
+
+  <hr>
   <div>
     <% @items.each do |item| %>
-      <h3>Description: <a href="/items/<%= item.id %>"><%= item.description %></a><h3>
+      <%= image_tag item.get_first_image %></div>
+      <h3>Name: <a href="/items/<%= item.id %>"><%= item.name %></a><h3>
+      <h3>Description: <%= item.description %></h3>
       <h3>Price: <%= item.price %></h3>
       <h3>Location: <%= item.location %></h3>
       <h3>Shipping: <%= item.shipping %></h3>
-      <h3>Webcam: <%= item.webcam_source %></h3>
-      <h3>User/Poster: <a href="/profiles/#{@user.id}"><%= item.user_full_name %></a></h3>
+      <h3>User/Poster: <a href="/profiles/<%= item.user.id %>"><%= item.user_full_name %></a></h3>
+  
       <hr>
     <% end %>
   </div>

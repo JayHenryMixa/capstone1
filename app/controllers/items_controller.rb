@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_action :authenticate_user!, except:[:index, :show, :search]
+
   def index
     @items = Item.all
   end
@@ -10,16 +12,25 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+
+    @image = Image.new
     
     render :new
   end
 
   def create
-    @item = Item.create({description: params[:description],
+    @item = Item.create({name: params[:name], 
+      description: params[:description],
     price: params[:price], 
     location: params[:location], 
     shipping: params[:shipping], 
-    webcam_source: params[:webcam_source]})
+    webcam_source: params[:webcam_source],
+    user_id: current_user.id})
+
+    @image = Image.create(url: params[:image], 
+      imagable_id: @item.id,
+      imagable_type: @item.class.name,
+      user_id: current_user.id )
     
     redirect_to "/items/#{@item.id}"
   end
@@ -31,11 +42,16 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
 
-    @item.update({description: params[:description], 
+
+    @item.update({name: params[:name],
+      description: params[:description], 
       price: params[:price], 
       location: params[:location], 
       shipping: params[:shipping], 
       webcam_source: params[:webcam_source]})
+
+    @image.update
+
   
     redirect_to "/items"
   end
@@ -46,5 +62,11 @@ class ItemsController < ApplicationController
 
     redirect_to '/items'
   end
+
+  def search
+    @items = Item.where("description LIKE ?", "%#{params[:search]}%")
+
+    render :index
+  end 
 
 end

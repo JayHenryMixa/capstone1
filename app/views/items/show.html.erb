@@ -1,11 +1,19 @@
 <h1>Item information</h1>
+  
+  <h3><% @item.images.each do |image| %>
+    <img src="<%= image.url %>" class="img-responsive"/>
+  <% end %></h3>
+  <h3>Name: <%= @item.name %></h3>
   <h3>Description: <%= @item.description %><h3>
   <h3>Price: <%= @item.price %></h3>
   <h3>Location: <%= @item.location %></h3>
   <h3>Ships? <%= @item.shipping %></h3>
-  <h3>Webcam link?<%= @item.webcam_source %></h3>
-  <h3>User/Poster: <a href="/profiles/#@{user.id}"><%= @item.user_full_name %></h3>
+  
 
+
+  <h3>User/Poster: <a href="/profiles/<%= @item.user.id %>"><%= @item.user_full_name %></h3>
+  
+  
+  
+<hr>
 <h4><a href="/items">Back to Index</a></h4>
-<h4><%= link_to "delete", "/items/#{@item.id}", 
-  method: :delete, data: {confirm: "Are you sure?"} %></h4>

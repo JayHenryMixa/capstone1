@@ -1,6 +1,20 @@
 <h1>Fragit User </h1>
+
 <h3><%= @user.first_name %> <%= @user.last_name %></h3>
 <h3><%= @user.email %></h3>
+  
+<hr>
+  <h3>Your Items for Sale</h3>
+    <% @user.items.each do |item| %>
+  <h4><a href=<%= "/items/#{item.id}/edit" %>><%= item.name %></a></h4>
+<% end %>
+  
+<hr>
+  <h3>Your Pending Requests</h3>
+    <% @user.requests.each do |request| %>
+  <h4><a href=<%= "/requests/#{request.id}/edit" %>><%= request.name %></a></h4>
+  <% end %>
+    <hr>
 
-  <hr>
+
 <h4><a href="/profiles">Back to Profiles</a></h4>

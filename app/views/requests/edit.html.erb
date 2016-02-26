@@ -1,6 +1,11 @@
 <h1>Edit Request</h1>
 <%= form_tag "/requests/#{@request.id}", method: :patch do %>
 <h3>
+  <div>
+    <%= label_tag :name %>
+    <%= text_field_tag :name, @request.name %>
+  </div>
+
     <div>
       <%= label_tag :description %>
       <%= text_field_tag :description, @request.description %>
@@ -27,3 +32,7 @@
     <%= submit_tag "Edit Request" %>
   </h3>
 <% end %>
+<hr>
+<h4><a href="/requests">Back to Index</a></h4>
+<h4><%= link_to "delete", "/requests/#{@request.id}", 
+  method: :delete, data: {confirm: "Are you sure?"} %></h4>

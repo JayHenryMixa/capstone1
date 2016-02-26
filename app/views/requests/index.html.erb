@@ -1,14 +1,16 @@
 <h1>Index of Requests posted by Users</h1>
-
+<h4><a href="/requests/new">Post a New Request</a></h4>
 <hr>
 <h3>
   <div>
     <% @requests.each do |request| %>
-      <h3>Description: <a href="/requests/<%= request.id %>"><%= request.description %></a><h3>
+      <%= image_tag request.get_first_image %></div>
+      <h3>Name: <a href="/requests/<%= request.id %>"><%= request.name %></a><h3>
+      <h3>Description: <%= request.description %></h3>
       <h3>Price: <%= request.price %></h3>
       <h3>Location: <%= request.location %></h3>
       <h3>Ships? <%= request.shipping %></h3>
-      <h3>User/Poster: <a href="/profiles/#{@user.id}"><%= request.user_full_name %></h3>
+      <h3>User/Poster: <a href="/profiles/<%= request.user.id %>"><%= request.user_full_name %></a></h3>
       <hr>
     <% end %>
   </div>

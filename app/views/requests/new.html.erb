@@ -3,6 +3,11 @@
   <%= form_tag '/requests', method: :post do %>
   <h3>
       <div>
+        <%= label_tag :name %>
+        <%= text_field_tag :name %>
+      </div>
+
+      <div>
         <%= label_tag :description %>
         <%= text_field_tag :description %>
       </div>
@@ -24,6 +29,10 @@
             <%= text_field_tag :shipping %>
           </div>
 
+          <div>
+            <%= label_tag :image %>
+            <%= text_field_tag :image %>
+          </div>
 
       <%= submit_tag "Submit Request" %>
     </h3>

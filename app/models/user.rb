@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   
   has_many :items 
   has_many :requests
-
+  has_many :images
 
 
   devise :database_authenticatable, :registerable,

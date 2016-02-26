@@ -1,5 +1,7 @@
 class HoldersController < ApplicationController
 
+  before_action :authenticate_admin!, except:[:index, :show]
+
   def index
     @holders = Holder.all 
   end

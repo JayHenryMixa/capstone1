@@ -5,6 +5,8 @@
   <div>
   <% @users.each do |user| %>
     <h3>User: <a href="/profiles/<%= user.id %>"><%= user.first_name %> <%= user.last_name %></a></h3>
+
+    
     <h3>Email: <%= user.email %></h3>
     <hr>
   <% end %>
