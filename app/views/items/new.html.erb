@@ -34,6 +34,11 @@
               <%= text_field_tag :image %>
             </div>
 
+            <div>
+            
+
+              <%= collection_select(:specimen, :specimen_id, @species, :id, :name, prompt: true) %>
+
       <%= submit_tag "Add Item" %>
     </h3>
   <% end %>

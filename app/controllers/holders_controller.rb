@@ -30,6 +30,9 @@ class HoldersController < ApplicationController
       designation: params[:designation
       ])
 
+    @holder.specimen = @specimen
+    @holder.save!
+
     redirect_to "/holders"
   end
 

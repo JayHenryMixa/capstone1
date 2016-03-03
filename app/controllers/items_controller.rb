@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :check_item_user_credentials!, except:[:index, :show, :new, :search]
+  before_action :check_item_user_credentials!, except:[:index, :show, :new, :create, :search]
   before_action :authenticate_user!, except:[:index, :show, :search]
 
   def index
@@ -15,6 +15,8 @@ class ItemsController < ApplicationController
     @item = Item.new
 
     @image = Image.new
+
+    @species = Specimen.all
     
     render :new
   end
@@ -25,8 +27,11 @@ class ItemsController < ApplicationController
     price: params[:price], 
     location: params[:location], 
     shipping: params[:shipping], 
-    holder_id: params[:holder],
     user_id: current_user.id})
+
+    specimen = Specimen.find_by(id: params[:specimen][:specimen_id])
+    @item.specimen = specimen
+    @item.save!
 
     @image = Image.create(url: params[:image], 
       imagable_id: @item.id,

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302060316) do
+ActiveRecord::Schema.define(version: 20160303011508) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content",    limit: 65535
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20160302060316) do
     t.string   "price",       limit: 255
     t.string   "location",    limit: 255
     t.string   "shipping",    limit: 255
-    t.integer  "holder_id",   limit: 4
+    t.integer  "specimen_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id",     limit: 4
