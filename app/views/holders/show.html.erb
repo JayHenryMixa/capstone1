@@ -1,5 +1,5 @@
 <h3>Specimen Holder Show</h3>
-  <h3>User Id: <%= @holder.user_full_name %></h3>
+  <h3>User Id: <a href="/profiles/<%= @holder.user.id %>"><%= @holder.user_full_name %></a></h3>
   <h3>Specimen Id: <%= @holder.specimen.name %></h3>
   <h3>Date Acquired: <%= @holder.date_acquired %></h3>
   <h3>Acquired From: <%= @holder.acquired_from %></h3>

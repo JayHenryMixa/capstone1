@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
 
   belongs_to :user
-
+  belongs_to :holder
   has_many :images, as: :imagable
 
   def user_full_name

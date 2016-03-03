@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :items 
   has_many :requests
   has_many :images
-
+  has_many :holders
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

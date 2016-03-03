@@ -10,18 +10,6 @@ class ProfilesController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new
-    @user = User.new
-
-    render :new
-  end
-
-  def create
-    @user = User.create({email: params[:email], 
-      first_name: params[:first_name], 
-      last_name: params[:last_name]})
-    redirect_to "/profiles/#{@user.id}"
-  end 
 
   def edit 
     @user = User.find(params[:id])
@@ -45,9 +33,7 @@ class ProfilesController < ApplicationController
   private
 
   def check_user_credentials!
-     if current_user.id == @profile.user.id
-      authenticate_user!
-     else
+    unless current_user.id == params[:id].to_i
       redirect_to '/'
     end
   end

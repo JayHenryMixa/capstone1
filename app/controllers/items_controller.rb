@@ -1,11 +1,12 @@
 class ItemsController < ApplicationController
 
+  before_action :check_item_user_credentials!, except:[:index, :show, :new, :search]
   before_action :authenticate_user!, except:[:index, :show, :search]
 
   def index
     @items = Item.all
   end
-
+#where(user_id: current_user.id)
   def show
     @item = Item.find(params[:id])
   end
@@ -24,7 +25,7 @@ class ItemsController < ApplicationController
     price: params[:price], 
     location: params[:location], 
     shipping: params[:shipping], 
-    webcam_source: params[:webcam_source],
+    holder_id: params[:holder],
     user_id: current_user.id})
 
     @image = Image.create(url: params[:image], 
@@ -48,7 +49,7 @@ class ItemsController < ApplicationController
       price: params[:price], 
       location: params[:location], 
       shipping: params[:shipping], 
-      webcam_source: params[:webcam_source]})
+      holder_id: params[:holder_id]})
 
     @image.update
 
@@ -68,5 +69,15 @@ class ItemsController < ApplicationController
 
     render :index
   end 
+
+  private
+
+  def check_item_user_credentials!
+    item = Item.find(params[:id])
+
+    unless current_user.id == item.user_id
+      redirect_to '/'
+    end
+  end
 
 end

@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-
+  before_action :check_item_user_credentials!, except:[:index, :show, :search]
   before_action :authenticate_user!, except:[:index, :show, :search]
   
   def index
@@ -52,6 +52,16 @@ class RequestsController < ApplicationController
     @request.destroy
 
     redirect_to '/requests'
+  end
+
+  private
+
+  def check_item_user_credentials!
+    request = Request.find(params[:id])
+
+    unless current_user.id == request.user_id
+      redirect_to '/'
+    end
   end
   
 end

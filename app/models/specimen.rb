@@ -1,5 +1,7 @@
 class Specimen < ActiveRecord::Base
   self.table_name = "specimens"
 
-  belongs_to :holder
+  has_many :holders
+  has_many :users, through: :holders 
+
 end

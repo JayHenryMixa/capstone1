@@ -3,20 +3,21 @@
 <h3>
     <div>
       <%= label_tag :email %>
-      <%= text_field_tag :email %>
+      <%= text_field_tag :email, @user.email %>
     </div>
 
       <div>
         <%= label_tag :first_name %>
-        <%= text_field_tag :first_name %>
+        <%= text_field_tag :first_name, @user.first_name %>
       </div>
       
         <div>
           <%= label_tag :last_name %>
-          <%= text_field_tag :last_name %>
+          <%= text_field_tag :last_name, @user.last_name %>
         </div>
 
   <%= submit_tag "Update" %>
 
 </h3>
 <% end %>
+<h4><%= link_to "delete", "/profiles", method: :delete, data: {confirm: "Are you sure?"} %></h4>
