@@ -1,28 +1,24 @@
-<h3>Add New Holder</h3>
+<h3>Update Lineage Key</h3>
 <%= form_tag "/holders/#{@holder.id}", method: :patch do %>
 
-  <h3>
-    <div>
-      <%= label_tag :user_id %>
-      <%= text_field_tag :user_id, @holder.user_id %>
-    </div>
-
-    <div>
-      <%= label_tag :specimen_id %>
-      <%= text_field_tag :specimen_id, @holder.specimen_id %>
-    </div>
-
-      <div>
-        <%= label_tag :date_acquired %>
-        <%= text_field_tag :date_acquired, @holder.date_acquired %>
-      </div>
-      
-        <div>
-          <%= label_tag :acquired_from %>
-          <%= text_field_tag :acquired_from, @holder.acquired_from %>
-        </div>
-
+  <h3><%= @holder.user_full_name %></h3>
+    
+  <h3>Specimen Id: <%= @holder.specimen.name %></h3>
   
+  <h3>Date Acquired: <%= @holder.date_acquired %></h3>
+  <hr>
+  <h3>Add Users Who've Bought Frags</h3>    
+    <div>
+      <%= label_tag :sold_to %>
+      <%= collection_select :user, :user_id, User.all, :id, :last_name %>
+      <h1>Need to find way to store multiple holders, probably create an array, also need to fix now Sold To </h1>
+
+      
+    </div>
+  <hr>
+    <h3>Remove Lineage Key</h3>
+    <h1>This will have to be added in JS to allow a user to make a lineage dormant without deleting it and removing from the database.Added active? column to table</h1> 
+  <hr>
     <%= submit_tag "Update Specimen Holder" %>
   </h3>
 <% end %>

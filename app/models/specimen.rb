@@ -4,4 +4,5 @@ class Specimen < ActiveRecord::Base
   has_many :holders
   has_many :users, through: :holders 
   has_many :items
+  has_many :requests
 end

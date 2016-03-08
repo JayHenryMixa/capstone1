@@ -60,7 +60,14 @@
 
       <% end %>
       
-            <li><a href="#">Action</a></li>
+            
+
+            <li><a href="/profiles/admin">Admin Tools</a></li>
+            
+
+
+
+
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
@@ -87,10 +94,13 @@
 
 
   </div>
+  <div>
 <% flash.each do |name, message| %>
   <div class="alert alert-<%= name %> alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
     <%= message %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
 
 
 <% end %>

@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :check_item_user_credentials!, except:[:index, :show, :search]
+  before_action :check_item_user_credentials!, except:[:index, :show, :new, :create, :search]
   before_action :authenticate_user!, except:[:index, :show, :search]
   
   def index
@@ -14,6 +14,10 @@ class RequestsController < ApplicationController
     @request = Request.new
 
     @image = Image.new
+
+    @species = Specimen.all
+
+    render :new
   end
 
   def create
@@ -24,9 +28,14 @@ class RequestsController < ApplicationController
       shipping: params[:shipping],
       user_id: current_user.id})
 
+      specimen = Specimen.find_by(id: params[:specimen][:specimen_id])
+      @request.specimen = specimen
+      @request.save!
+
     @image = Image.create(url: params[:image],
       imagable_id: @request.id,
-      imagable_type: @request.class.name)
+      imagable_type: @request.class.name,
+      user_id: current_user.id)
 
     redirect_to "/requests/#{@request.id}"
   end

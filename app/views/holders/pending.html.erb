@@ -1,0 +1,15 @@
+<h3>Pending Lineage Key Requests</h3>
+
+
+    <% @holders.each do |holder| %>
+      <h3>Specimen ID: <%= holder.specimen.name %> 
+      <%= link_to "Delete", "/holders/#{holder.id}", class: "btn btn-delete", method: :delete %></h3>
+
+      <h3>User: <a href="/holders/<%= holder.id %>"><%= holder.user_full_name %></a></h3>
+
+      <h3>Specimen Status: <%= holder.status %></h3>
+      <h3>Date Acquired: <%= holder.date_acquired %></h3>
+      <h3>Sold To: <%= holder.sold_to %></h3>
+
+      <hr>
+    <% end %>

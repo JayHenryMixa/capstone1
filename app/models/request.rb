@@ -1,7 +1,7 @@
 class Request < ActiveRecord::Base
 
   belongs_to :user
-
+  belongs_to :specimen
   has_many :images, as: :imagable
 
   def user_full_name

@@ -1,10 +1,12 @@
 class ProfilesController < ApplicationController
   
-  before_action :check_user_credentials!, except:[:index, :show]
+  before_action :authenticate_admin!, only:[:admin]
+  before_action :check_user_credentials!, except:[:index, :show, :admin]
 
   def index
     @users = User.all
   end 
+
 
   def show
     @user = User.find(params[:id])
@@ -28,6 +30,10 @@ class ProfilesController < ApplicationController
     @user.destroy
 
     redirect_to '/profiles'
+  end
+
+  def admin 
+    
   end
 
   private

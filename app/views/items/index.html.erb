@@ -7,12 +7,12 @@
     <% @items.each do |item| %>
       <%= image_tag item.get_first_image %></div>
       <h3>Name: <a href="/items/<%= item.id %>"><%= item.name %></a><h3>
+      <h3>User/Poster: <a href="/profiles/<%= item.user.id %>"><%= item.user_full_name %></a></h3>
       <h3>Description: <%= item.description %></h3>
       <h3>Price: <%= item.price %></h3>
       
       <h3>Location: <%= item.location %></h3>
       <h3>Shipping: <%= item.shipping %></h3>
-      <h3>User/Poster: <a href="/profiles/<%= item.user.id %>"><%= item.user_full_name %></a></h3>
   
       <hr>
     <% end %>

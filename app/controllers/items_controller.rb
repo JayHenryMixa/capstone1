@@ -70,7 +70,14 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.where("description LIKE ?", "%#{params[:search]}%")
+    # if params[:search_type] == "item"
+
+      @items = Item.where("description LIKE ?", "%#{params[:search]}%")
+      # render :index
+    # elsif params[:search_type] == "requests"
+    #   @requests = Request.search(params[:queery_data])
+    #   render 'requests/index'
+    #end
 
     render :index
   end 

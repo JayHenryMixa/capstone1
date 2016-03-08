@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   root 'profiles#index'
 
   get '/profiles' => 'profiles#index'
+
+  get '/profiles/admin' => 'profiles#admin'
+  
   get '/profiles/:id' => 'profiles#show'
   get '/profiles/:id/edit' => 'profiles#edit'
   patch '/profiles/:id' => 'profiles#update'
@@ -41,7 +44,14 @@ Rails.application.routes.draw do
 
   get '/holders' => 'holders#index'
   get '/holders/new' => "holders#new"
+
+
+
   post '/holders' => "holders#create"
+
+  get '/holders/pending' => 'holders#pending'
+
+
   get '/holders/:id' => "holders#show"
   get '/holders/:id/edit' => "holders#edit"
   patch '/holders/:id' => "holders#update"

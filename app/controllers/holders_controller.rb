@@ -1,14 +1,18 @@
 class HoldersController < ApplicationController
 
-  before_action :authenticate_admin!, except:[:index, :new, :show, :create]
+  before_action :authenticate_admin!, only:[:pending]
+  before_action :authenticate_user!, except:[:index, :show, :search]
 
   def index
-    @holders = Holder.all 
+    @holders = Holder.all.where(status: "approved")
   end
 
   def show
     @holder = Holder.find(params[:id])
+
+    @specimen = Specimen.find(params[:id])
   end
+
 
   def new
     @holder = Holder.new
@@ -20,19 +24,17 @@ class HoldersController < ApplicationController
 
   def create
     @holder = Holder.create({user_id: current_user.id,
-      # specimen_id: params[:specimen_id],
-       date_acquired: params[:date_acquired]
-      # acquired_from: params[:acquired_from] 
-      })
+       date_acquired: params[:date_acquired], 
+       status: "pending"})
 
     @specimen = Specimen.create(name: params[:name],
       scientific_name: params[:scientific_name],
-      designation: params[:designation
-      ])
+      designation: params[:designation])
 
     @holder.specimen = @specimen
     @holder.save!
 
+    flash[:success] = "Your Request has been submitted for review."
     redirect_to "/holders"
   end
 
@@ -43,12 +45,11 @@ class HoldersController < ApplicationController
   def update
     @holder = Holder.find(params[:id])
 
-    @holder.update({user_id: params[:user_id],
-      specimen_id: params[:specimen_id],
-      date_acquired: params[:date_acquired],
-      acquired_from: params[:acquired_from]
-      })
 
+
+    @holder.update({sold_to: params[:sold_to]})
+
+    flash[:message] = "User has been added to the list of lineage key holders."
     redirect_to "/holders"
   end
 
@@ -58,5 +59,19 @@ class HoldersController < ApplicationController
 
     redirect_to '/holders'
   end
+
+  def pending
+    @holders = Holder.all.where(status: "pending")
+  end
+
+  def check_item_user_credentials!
+    holder = Holder.find(params[:id])
+
+    unless current_user.id == holder.user_id
+      redirect_to '/'
+    end
+  end
+
+  
 
 end

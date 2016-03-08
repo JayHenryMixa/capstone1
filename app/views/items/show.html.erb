@@ -3,15 +3,22 @@
   <h3><% @item.images.each do |image| %>
     <img src="<%= image.url %>" class="img-responsive"/>
   <% end %></h3>
-  <h3>Name: <%= @item.name %></h3>
+  
+  <h3>Name: <a href="/items" %><%= @item.name %></a></h3>
+  
+
   <h3>Description: <%= @item.description %><h3>
   <h3>Price: <%= @item.price %></h3>
   <h3>Location: <%= @item.location %></h3>
   <h3>Ships? <%= @item.shipping %></h3>
   
+  
+
+  <h3>Specimen: <a href="/specimens/<%= @item.specimen.id %>"> <%= @item.specimen.name %></a></h3>
 
 
-  <h3>User/Poster: <a href="/profiles/<%= @item.user.id %>"><%= @item.user_full_name %></h3>
+  
+  <h3>User/Poster: <a href="/profiles/<%= @item.user.id %>"><%= @item.user_full_name %></a></h3>
   
   
   
