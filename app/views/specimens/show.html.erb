@@ -4,5 +4,3 @@
     <h3><%= @specimen.designation %></h3>
   <hr>
 <h4><a href="/specimens">Back to Index</a></h4>
-<h4><%= link_to "delete", "/specimens/#{@specimen.id}", 
-  method: :delete, data: {confirm: "Are you sure?"} %></h4>

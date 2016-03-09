@@ -4,6 +4,8 @@ class Request < ActiveRecord::Base
   belongs_to :specimen
   has_many :images, as: :imagable
 
+  validates :name, :description, :price, :location, :shipping, presence: true
+
   def user_full_name
     user.first_name + " " + user.last_name
   end

@@ -1,4 +1,4 @@
-<h1>Add a New Request</h1>
+<h1>Make a Request</h1>
   
   <%= form_tag '/requests', method: :post do %>
   <h3>
@@ -35,6 +35,7 @@
           </div>
 
           <div>
+            <%= label_tag :specimen %>
             <%= collection_select(:specimen, :specimen_id, @species, :id, :name, prompt: true) %>
 
           </div>
@@ -42,3 +43,4 @@
       <%= submit_tag "Submit Request" %>
     </h3>
   <% end %>
+  <h4><a href="/requests">Back to Index</a></h4>

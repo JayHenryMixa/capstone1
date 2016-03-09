@@ -9,6 +9,7 @@
     <% @holders.each do |holder| %>
       <h3>User: <a href="/holders/<%= holder.id %>"><%= holder.user_full_name %></a></h3>
       <h3>Specimen ID: <a href="/holders/<%= holder.specimen.id %>"><%= holder.specimen.name %></a></h3>
+      
 
       <h3>Date Acquired: <%= holder.date_acquired %></h3>
       <h3>Sold To: <%= holder.sold_to %></h3>

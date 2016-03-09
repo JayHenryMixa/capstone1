@@ -6,11 +6,15 @@
     <% @requests.each do |request| %>
       <%= image_tag request.get_first_image %></div>
       <h3>Name: <a href="/requests/<%= request.id %>"><%= request.name %></a><h3>
+
+      <h3>Specimen: <a href="/specimens/<%= request.specimen.id %>"> <%= request.specimen.name %></a></h3>
+
+      <h3>User/Poster: <a href="/profiles/<%= request.user.id %>"><%= request.user_full_name %></a></h3>
+      
       <h3>Description: <%= request.description %></h3>
       <h3>Price: <%= request.price %></h3>
       <h3>Location: <%= request.location %></h3>
       <h3>Ships? <%= request.shipping %></h3>
-      <h3>User/Poster: <a href="/profiles/<%= request.user.id %>"><%= request.user_full_name %></a></h3>
       <hr>
     <% end %>
   </div>

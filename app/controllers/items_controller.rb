@@ -17,6 +17,8 @@ class ItemsController < ApplicationController
     @image = Image.new
 
     @species = Specimen.all
+
+    
     
     render :new
   end
@@ -28,6 +30,10 @@ class ItemsController < ApplicationController
     location: params[:location], 
     shipping: params[:shipping], 
     user_id: current_user.id})
+
+    holder = Holder.find_by(id: params[:holder][:holder_id])
+    @item.holder = holder
+    @item.save!
 
     specimen = Specimen.find_by(id: params[:specimen][:specimen_id])
     @item.specimen = specimen
@@ -53,10 +59,14 @@ class ItemsController < ApplicationController
       description: params[:description], 
       price: params[:price], 
       location: params[:location], 
-      shipping: params[:shipping], 
-      holder_id: params[:holder_id]})
+      shipping: params[:shipping]})
 
-    @image.update
+
+
+    @image = Image.create(url: params[:image], 
+      imagable_id: @item.id,
+      imagable_type: @item.class.name,
+      user_id: current_user.id )
 
   
     redirect_to "/items"

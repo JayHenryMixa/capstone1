@@ -12,6 +12,11 @@
         <%= text_field_tag :description %>
       </div>
 
+      <div>
+        <%= label_tag :Lineage_Coral %>
+        <%= collection_select :holder, :holder_id, Holder.all, :id, :id %>
+      </div>
+
         
       <div>
         <%= label_tag :price %>
@@ -33,12 +38,9 @@
               <%= label_tag :image %>
               <%= text_field_tag :image %>
             </div>
-
-            <
-
-            <div>
             
             <div>
+              <%= label_tag :specimen %>
               <%= collection_select(:specimen, :specimen_id, @species, :id, :name, prompt: true) %>
             </div>
 

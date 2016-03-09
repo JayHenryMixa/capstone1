@@ -53,6 +53,11 @@ class RequestsController < ApplicationController
       location: params[:location], 
       shipping: params[:shipping]})
 
+    @image = Image.create(url: params[:image],
+      imagable_id: @request.id,
+      imagable_type: @request.class.name,
+      user_id: current_user.id)
+
     redirect_to "/requests"
   end
 #limit to only user or admin deleting requests
