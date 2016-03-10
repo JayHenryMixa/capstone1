@@ -1,4 +1,4 @@
-/*
+por/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -10,6 +10,26 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require theme/bootstrap-theme
+ *= require theme/bootstrap
+ *= require theme/animate
+ *= require theme/flexslider
+ *= require theme/jquery.mCustomScrollbar
+ *= require theme/master-slider-custom
+ *= require theme/style
+ *= require theme/sweetalert
+ *= require theme/ionicons
+ *= require theme/style
+ *= require theme/style
+ *= require theme/style
+ *= require theme/style
+ *= require theme/style
+ *= require theme/style
+ *= require theme/style
+ *= require theme/style
+ *= require theme/style
+ *= require theme/style
+ *= require theme/masterslider
  *= require_tree .
  *= require_self
  */
