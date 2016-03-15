@@ -1,26 +1,30 @@
-<h1>Edit Request</h1>
-<%= form_tag "/requests/#{@request.id}", method: :patch do %>
-<h3>
-<div>
-  <%= label_tag :image %>
-  <%= text_field_tag :image %>
-</div>
 
-  <div>
-    <%= label_tag :name %>
-    <%= text_field_tag :name, @request.name %>
-  </div>
+<div class="block-heading-two">
+  <h3><span>Edit Request</span></h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-sm-6 text-left">
+      <%= form_tag "/requests/#{@request.id}", method: :patch do %>
+      <div>
+        <%= label_tag :image %>
+        <%= text_field_tag :image %>
+      </div>
 
-    <div>
-      <%= label_tag :description %>
-      <%= text_field_tag :description, @request.description %>
-    </div>
+      <div>
+        <%= label_tag :name %>
+        <%= text_field_tag :name, @request.name %>
+      </div>
+
+      <div>
+        <%= label_tag :description %>
+        <%= text_field_tag :description, @request.description %>
+      </div>
 
       
-    <div>
-      <%= label_tag :price %>
-      <%= text_field_tag :price, @request.price %>
-    </div>
+      <div>
+        <%= label_tag :price %>
+        <%= text_field_tag :price, @request.price %>
+      </div>
 
 
       <div>
@@ -28,16 +32,17 @@
         <%= text_field_tag :location, @request.location %>
       </div>
       
-        <div>
-          <%= label_tag :shipping %>
-          <%= text_field_tag :shipping, @request.shipping %>
-        </div>
-
-        
-    <%= submit_tag "Edit Request" %>
-  </h3>
-<% end %>
-<hr>
-<h4><a href="/requests">Back to Index</a></h4>
-<h4><%= link_to "delete", "/requests/#{@request.id}", 
+      <div>
+        <%= label_tag :shipping %>
+        <%= text_field_tag :shipping, @request.shipping %>
+      </div>
+    <div>
+      <%= submit_tag "Edit Request" %>
+      <h4><a href="/requests">Back to Index</a></h4>
+    </div>
+    <h4><%= link_to "delete", "/requests/#{@request.id}", 
   method: :delete, data: {confirm: "Are you sure?"} %></h4>
+    </div>
+  </div> 
+</div> 
+  <% end %>

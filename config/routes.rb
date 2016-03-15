@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
   root 'profiles#index'
 
+  get '/profiles/home' => 'profiles#home'
+
   get '/profiles' => 'profiles#index'
 
   get '/profiles/admin' => 'profiles#admin'
@@ -21,7 +23,7 @@ Rails.application.routes.draw do
   get '/items/:id/edit' => 'items#edit'
   patch '/items/:id' => 'items#update'
   
-  post 'search' => "items#search"
+  post '/search' => "items#search"
 
 
   delete '/items/:id' => 'items#destroy'

@@ -1,9 +1,16 @@
-<h3>Specimen Holder Show</h3>
-  <h3>User Id: <a href="/profiles/<%= @holder.user.id %>"><%= @holder.user_full_name %></a></h3>
-  <h3>Specimen Id: <a href="/specimens/<%= @holder.specimen.id %>"><%= @holder.specimen.name %></a></h3>
-  <h3>Date Acquired: <%= @holder.date_acquired %></h3>
-  <h3>Sold To: <%= @holder.sold_to %></h3>
-
-<h4><%= link_to "Edit", "/holders/#{@holder.id}/edit", class: "btn btn-edit" %></h4>
-<h4><a href="/holders">Back to Specimen Holders</a></h4>
-
+<div class="block-heading-two">
+  <h3><span>Specimen Holder Show</span></h3>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 col-sm-6 text-center">
+          <p>Specimen Id: <a href="/specimens/<%= @holder.specimen.id %>"><%= @holder.specimen.name %></a></p>
+          <p>User Id: <a href="/profiles/<%= @holder.user.id %>"><%= @holder.user_full_name %></a></p>
+          <p>Date Acquired: <%= @holder.date_acquired %></p>
+          <p>Sold To: <%= @holder.sold_to %></p>
+          <br/>
+          <h4><a href="/holders">Back to Specimen Holders</a></h4>
+          <h4><%= link_to "Edit", "/holders/#{@holder.id}/edit", class: "btn btn-edit" %></h4>
+        </div>
+      </div>  
+    </div>
+</div>

@@ -1,27 +1,36 @@
-<h1>Item information</h1>
-  
-  <h3><% @item.images.each do |image| %>
-    <img src="<%= image.url %>" class="img-responsive"/>
-  <% end %></h3>
-  
-  <h3>Name: <a href="/items"><%= @item.name %></a></h3>
-  
-  <h3>Specimen: <a href="/specimens/<%= @item.specimen.id %>"> <%= @item.specimen.name %></a></h3>
+<div class="block-heading-two">
+  <h3><span>Item Information</span></h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-sm-6 text-center">
+        <p class="para-big">Name: <a href="/items"><%= @item.name %></a></p>
+        <p>Specimen: <a href="/specimens/<%= @item.specimen.id %>"> <%= @item.specimen.name %></a></p>
+        <p>Lineage Coral: <a href="/holders/<%= @item.holder.id %>"><%= @item.holder.id %></a></p>
+        <p>User/Poster: <a href="/profiles/<%= @item.user.id %>"><%= @item.user_full_name %></a></p>
+        <p>Description: <%= @item.description %></p>
+        <p>Price: <%= @item.price %></p>
+        <p>Location: <%= @item.location %></p>
+        <p>Ships? <%= @item.shipping %></p>
+              <br/>
+        <h4><a href="/items">Back to Index</a></h4>
+          </div>
+            <div class="col-md-5 col-sm-6 text-left">
+              <% @item.images.each do |image| %>
+              <a href="#"><img src="<%= image.url %>"  alt="" style="width:300px;height:300px;"/></a>
+              <% end %>
+            </div>  
+      </div>
+    </div>
+  </div>   
+</div>
 
-  <h3>Lineage Coral: <a href="/holders/<%= @item.holder.id %>"><%= @item.holder.id %></a></h3>
-  
-  <h3>User/Poster: <a href="/profiles/<%= @item.user.id %>"><%= @item.user_full_name %></a></h3>
-  
-  <h3>Description: <%= @item.description %><h3>
-  <h3>Price: <%= @item.price %></h3>
-  <h3>Location: <%= @item.location %></h3>
-  <h3>Ships? <%= @item.shipping %></h3>
-  
+
+
+
 
 
 
   
   
   
-<hr>
-<h4><a href="/items">Back to Index</a></h4>
+

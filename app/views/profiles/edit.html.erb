@@ -1,23 +1,31 @@
-<h1>Edit Your Fragit Account</h1>
-<%= form_tag '/profiles/#{@user.id}', method: :patch do %>
-<h3>
-    <div>
-      <%= label_tag :email %>
-      <%= text_field_tag :email, @user.email %>
-    </div>
+<div class="block-heading-two">
+  <h3><span>Edit Your Fragit Account</span></h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-sm-6 text-left">
+      <%= form_tag '/profiles/#{@user.id}', method: :patch do %>
+
+      <div>
+        <%= label_tag :email %>
+        <%= text_field_tag :email, @user.email %>
+      </div>
 
       <div>
         <%= label_tag :first_name %>
         <%= text_field_tag :first_name, @user.first_name %>
       </div>
       
-        <div>
-          <%= label_tag :last_name %>
-          <%= text_field_tag :last_name, @user.last_name %>
-        </div>
-
-  <%= submit_tag "Update" %>
-
-</h3>
-<% end %>
-<h4><%= link_to "delete", "/profiles", method: :delete, data: {confirm: "Are you sure?"} %></h4>
+      <div>
+        <%= label_tag :last_name %>
+        <%= text_field_tag :last_name, @user.last_name %>
+      </div>
+        
+      <div>  
+        <%= submit_tag "Update" %>
+      </div>
+      <h4><%= link_to "delete", "/profiles", method: :delete, data: {confirm: "Are you sure?"} %></h4>
+      </div>
+    </div>
+  </div>
+</div>  
+  <% end %>

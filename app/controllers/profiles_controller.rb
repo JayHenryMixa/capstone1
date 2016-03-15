@@ -3,6 +3,10 @@ class ProfilesController < ApplicationController
   before_action :authenticate_admin!, only:[:admin]
   before_action :check_user_credentials!, except:[:index, :show, :admin]
 
+  def home
+    
+  end
+
   def index
     @users = User.all
   end 

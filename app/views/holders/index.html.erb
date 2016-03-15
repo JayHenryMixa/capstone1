@@ -1,21 +1,28 @@
 <h1>Lineages of Specimens Held By Fragit Users</h1>
-  <h3>About... the future of the hobby is rooted firmly in our ability to aquaculture corals. Our Lineage tracking system was concieved with the aim of tracking specific strains of coral as they move through the hobby. The end goal is two-fold; first, we'd like see how strains adapt to captivity. Secondly, Fragit is a tool to verify the lineage of available specimens.</h3>
-  <hr>
+<div class='container'>
+  <div class="img-box-4 text-center">
+    <div class="row">
 
-<h3>
-  <div><a href="/holders/new">Submit a new Lineage Key</a></div>
-  <hr>
-  <div>
-    <% @holders.each do |holder| %>
-      <h3>User: <a href="/holders/<%= holder.id %>"><%= holder.user_full_name %></a></h3>
-      <h3>Specimen ID: <a href="/holders/<%= holder.specimen.id %>"><%= holder.specimen.name %></a></h3>
-      
+    <h3>About... the future of the hobby is rooted firmly in our ability to aquaculture corals. Our Lineage tracking system was concieved with the aim of tracking specific strains of coral as they move through the hobby. The end goal is two-fold; first, we'd like see how strains adapt to captivity. Secondly, Fragit is a tool to verify the lineage of available specimens.</h3>
+  
+      <div><a href="/holders/new">Submit a new Lineage Key</a></div>
 
-      <h3>Date Acquired: <%= holder.date_acquired %></h3>
-      <h3>Sold To: <%= holder.sold_to %></h3>
-     
+    <hr>
+        <div>
+          <% @holders.each do |holder| %>
+          <div class="col-md-3 col-sm-6" style="width:287.5px;height:300px;">
 
-      <hr>
-    <% end %>
+            <div class="img-box-4-content">
+   
+              <div class="bor bg-green"></div>
+            <p>User: <a href="/holders/<%= holder.id %>"><%= holder.user_full_name %></a></p>
+            <p>Specimen ID: <a href="/holders/<%= holder.specimen.id %>"><%= holder.specimen.name %></a></p>
+            <p>Date Acquired: <%= holder.date_acquired %></p>
+            <p>Sold To: <%= holder.sold_to %></p>
+            </div>
+          </div>   
+          <% end %>
+        </div>
+    </div>
   </div>
-</h3>
+</div>

@@ -1,27 +1,29 @@
-<h1>Add New Item</h1>
+<div class="block-heading-two">
+  <h3><span>Add New Item</span></h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-sm-6 text-left">
+      <%= form_tag '/items', method: :post do %>
   
-  <%= form_tag '/items', method: :post do %>
-  <h3>
-     <div>
-       <%= label_tag :name %>
-       <%= text_field_tag :name %>
-     </div>
+        <div>
+          <%= label_tag :name %>
+          <%= text_field_tag :name %>
+        </div>
 
-      <div>
-        <%= label_tag :description %>
-        <%= text_field_tag :description %>
-      </div>
+        <div>
+          <%= label_tag :description %>
+          <%= text_field_tag :description %>
+        </div>
 
-      <div>
-        <%= label_tag :Lineage_Coral %>
-        <%= collection_select :holder, :holder_id, Holder.all, :id, :id %>
-      </div>
+        <div>
+          <%= label_tag :Lineage_Coral %>
+          <%= collection_select :holder, :holder_id, Holder.all, :id, :id %>
+        </div>
 
-        
-      <div>
-        <%= label_tag :price %>
-        <%= text_field_tag :price %>
-      </div>
+        <div>
+          <%= label_tag :price %>
+          <%= text_field_tag :price %>
+        </div>
 
 
         <div>
@@ -29,21 +31,25 @@
           <%= text_field_tag :location %>
         </div>
         
-          <div>
-            <%= label_tag :shipping %>
-            <%= text_field_tag :shipping %>
-          </div>
+        <div>
+          <%= label_tag :shipping %>
+          <%= text_field_tag :shipping %>
+        </div>
 
-            <div>
-              <%= label_tag :image %>
-              <%= text_field_tag :image %>
-            </div>
+        <div>
+          <%= label_tag :image %>
+          <%= text_field_tag :image %>
+        </div>
             
-            <div>
-              <%= label_tag :specimen %>
-              <%= collection_select(:specimen, :specimen_id, @species, :id, :name, prompt: true) %>
-            </div>
-
-      <%= submit_tag "Add Item" %>
-    </h3>
+        <div>
+          <%= label_tag :specimen %>
+          <%= collection_select(:specimen, :specimen_id, @species, :id, :name, prompt: true) %>
+        </div>
+          <div>
+            <%= submit_tag "Add Item" %>
+          </div>  
+      </div>
+    </div>
+  </div>  
+</div>
   <% end %>

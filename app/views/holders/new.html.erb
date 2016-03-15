@@ -1,29 +1,34 @@
-<h3>Submit a request for a new lineage key</h3>
-<%= form_tag '/holders', method: :post do %>
+<div class="block-heading-two">
+  <h3><span>Submit a request for a new lineage key</span></h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-sm-6 text-left">
+      <%= form_tag '/holders', method: :post do %>
 
-  <h3>
-      <div>
-        <%= label_tag :date_acquired %>
-        <%= text_field_tag :date_acquired %>
-      </div>
+        <div>
+          <%= label_tag :date_acquired %>
+          <%= text_field_tag :date_acquired %>
+        </div>
     
-    <div>
-      <%= label_tag :name %>
-      <%= text_field_tag :name %>
-    </div>
+        <div>
+          <%= label_tag :name %>
+          <%= text_field_tag :name %>
+        </div>
 
-    <div>
-      <%= label_tag :scientific_name %>
-      <%= text_field_tag :scientific_name %>
-    </div>
+        <div>
+          <%= label_tag :scientific_name %>
+          <%= text_field_tag :scientific_name %>
+        </div>
 
-      
         <div>
           <%= label_tag :designation %>
           <%= text_field_tag :designation %>
         </div>
-
-  
-    <%= submit_tag "Add Specimen Holder" %>
-  </h3>
-<% end %>
+          <div>
+            <%= submit_tag "Add Specimen Holder" %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>      
+  <% end %>

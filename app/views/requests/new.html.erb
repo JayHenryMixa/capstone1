@@ -1,46 +1,50 @@
-<h1>Make a Request</h1>
-  
-  <%= form_tag '/requests', method: :post do %>
-  <h3>
-      <div>
-        <%= label_tag :name %>
-        <%= text_field_tag :name %>
-      </div>
+<div class="block-heading-two">
+  <h3><span>Make a Request</span></h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-sm-6 text-left">
+      <%= form_tag '/requests', method: :post do %>
 
-      <div>
-        <%= label_tag :description %>
-        <%= text_field_tag :description %>
-      </div>
+        <div>
+          <%= label_tag :name %>
+          <%= text_field_tag :name %>
+        </div>
 
-        
-      <div>
-        <%= label_tag :price %>
-        <%= text_field_tag :price %>
-      </div>
+        <div>
+          <%= label_tag :description %>
+          <%= text_field_tag :description %>
+        </div>
 
+        <div>
+          <%= label_tag :price %>
+          <%= text_field_tag :price %>
+        </div>
 
         <div>
           <%= label_tag :location %>
           <%= text_field_tag :location %>
         </div>
         
+        <div>
+          <%= label_tag :shipping %>
+          <%= text_field_tag :shipping %>
+        </div>
+
+        <div>
+          <%= label_tag :image %>
+          <%= text_field_tag :image %>
+        </div>
+
+        <div>
+          <%= label_tag :specimen %>
+          <%= collection_select(:specimen, :specimen_id, @species, :id, :name, prompt: true) %>
+        </div>
           <div>
-            <%= label_tag :shipping %>
-            <%= text_field_tag :shipping %>
+            <%= submit_tag "Submit Request" %>
           </div>
-
-          <div>
-            <%= label_tag :image %>
-            <%= text_field_tag :image %>
-          </div>
-
-          <div>
-            <%= label_tag :specimen %>
-            <%= collection_select(:specimen, :specimen_id, @species, :id, :name, prompt: true) %>
-
-          </div>
-
-      <%= submit_tag "Submit Request" %>
-    </h3>
+            <h4><a href="/requests">Back to Index</a></h4>
+      </div> 
+    </div>
+  </div>
+</div>  
   <% end %>
-  <h4><a href="/requests">Back to Index</a></h4>

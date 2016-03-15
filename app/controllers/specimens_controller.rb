@@ -1,4 +1,6 @@
 class SpecimensController < ApplicationController
+
+before_action :authenticate_admin!, only:[:edit, :create, :destroy]
   
   def index
     @specimens = Specimen.all
@@ -43,5 +45,6 @@ class SpecimensController < ApplicationController
 
     redirect_to '/specimens'
   end
+
   
 end

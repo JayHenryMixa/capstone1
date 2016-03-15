@@ -1,24 +1,42 @@
 <h1>Index of Items posted by Users</h1>
 
-<h4><a href="/items/new">Post a New Item</a></h4>
+<div class='container'>
+  <div class="img">
+    <div class="img-box-4 text-center">
+      <div class="row">
+        
+          <h4><a href="/items/new">Post a New Item-</a> Not a member?<a href="/users/sign_up"> Sign Up!</h4>
+          <% @items.each do |item| %>
+            <div class="col-md-3 col-sm-6" style="width:287.5px;height:450px;">
+         
+              <div class="img-box-4-item">
+               
+                <a href="#" class="lightbox">
+                <%= image_tag(item.get_first_image, width: '240', height: '190', ) %></a>
+                
+                <div class="img-box-4-content">
+            
+                  <h4>Name: <a href="/items/<%= item.id %>"><%= item.name %></a></h4>
 
-  <hr>
-  <div>
-    <% @items.each do |item| %>
-      <%= image_tag item.get_first_image %></div>
-      
-      <h3>Name: <a href="/items/<%= item.id %>"><%= item.name %></a><h3>
-      
-      <h3>User/Poster: <a href="/profiles/<%= item.user.id %>"><%= item.user_full_name %></a></h3>
-      
-      <h3>Lineage Coral: <a href="/holders/<%= item.holder.id %>"><%= item.holder.specimen.name %></a></h3>
+                
+                  <div class="bor bg-red"></div>
+                  
+                  <p>User/Poster: <a href="/profiles/<%= item.user.id %>"><%= item.user_full_name %></a></p>
 
-      <h3>Price: <%= item.price %></h3>
-      
+                  <p>Lineage Coral: <a href="/holders/<%= item.holder.id %>"><%= item.holder.specimen.name %></a></p>
 
-  
-      <hr>
-    <% end %>
+                  <p>Price: <%= item.price %></p>
+                  
+                </div>
+              </div>
+            </div>
+          <% end %>
+                
+          
+        </div>
+      
+    </div>
   </div>
-</h3>
+</div>
+
     

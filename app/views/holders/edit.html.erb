@@ -1,24 +1,32 @@
-<h3>Update Lineage Key</h3>
-<%= form_tag "/holders/#{@holder.id}", method: :patch do %>
+<div class="block-heading-two">
+  <h3><span>Update Lineage Key</span></h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 col-sm-6 text-left">
+      <%= form_tag "/holders/#{@holder.id}", method: :patch do %>
 
-  <h3><%= @holder.user_full_name %></h3>
+        <p><%= @holder.user_full_name %></p>
     
-  <h3>Specimen Id: <%= @holder.specimen.name %></h3>
+        <p>Specimen Id: <%= @holder.specimen.name %></p>
   
-  <h3>Date Acquired: <%= @holder.date_acquired %></h3>
-  <hr>
-  <h3>Add Users Who've Bought Frags</h3>    
-    <div>
-      <%= label_tag :sold_to %>
-      <%= collection_select :user, :user_id, User.all, :id, :last_name %>
-      <h1>Need to find way to store multiple holders, probably create an array, also need to fix now Sold To </h1>
+        <p>Date Acquired: <%= @holder.date_acquired %></p>
 
+        <p>Add Users Who've Bought Frags</p>    
+        
+        <div>
+          <%= label_tag :sold_to %>
+          <%= collection_select :user, :user_id, User.all, :id, :last_name %>
+        </div>
       
+        <p>Need to find way to store multiple holders, probably create an array, also need to fix now Sold To </p>
+      </div>  
     </div>
-  <hr>
-    <h3>Remove Lineage Key</h3>
-    <h1>This will have to be added in JS to allow a user to make a lineage dormant without deleting it and removing from the database.Added active? column to table</h1> 
-  <hr>
-    <%= submit_tag "Update Specimen Holder" %>
-  </h3>
-<% end %>
+      <%= submit_tag "Update Specimen Holder" %>
+  </div>    
+</div>      
+  <% end %>
+    
+  <div>
+    <h3>Retire Lineage Key</h3>
+    <h3>This will have to be added in JS to allow a user to make a lineage dormant without deleting it and removing from the database.Added active? column to table</h3> 
+  </div>
