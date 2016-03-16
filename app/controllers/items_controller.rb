@@ -31,6 +31,9 @@ class ItemsController < ApplicationController
     shipping: params[:shipping], 
     user_id: current_user.id})
 
+    NewItem.new_item(@user).deliver
+
+
     holder = Holder.find_by(id: params[:holder][:holder_id])
     @item.holder = holder
     @item.save!
@@ -43,6 +46,8 @@ class ItemsController < ApplicationController
       imagable_id: @item.id,
       imagable_type: @item.class.name,
       user_id: current_user.id )
+
+
     
     redirect_to "/items/#{@item.id}"
   end
