@@ -48,7 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  database: fragit-app_production
-  adapter: postgresql
-    encoding: unicode
-    pool: 5
+    database: fragit-app_production
+    adapter: postgresql
+        encoding: unicode
+        pool: 5
