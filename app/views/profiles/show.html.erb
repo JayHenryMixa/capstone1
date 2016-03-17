@@ -1,9 +1,12 @@
 <div class="block-heading-two">
   <h1><span>Fragit User</span></h1>
       <hr>
+
+      <p><img src="<%= @user.user_image %>"  alt="" style="width:150px;height:150px;"/></p>
       <p><%= @user.first_name %> <%= @user.last_name %></p>
       <p><%= @user.email %></p>
       <p><a href=<%= "/profiles/#{@user.id}/edit" %>>Edit Your Profile</a></p> 
+      <p><a href="/profiles">Back to Profiles</a></p>
       <hr>  
   <div class='container'>
     <div class="img">
@@ -98,9 +101,9 @@
             <div class="row">
               <h2>Images You've Submitted</h2>
               <% @user.images.each do |image| %>
-                <div class="col-md-3 col-sm-6" style="width:300px;height:300px;">
+                <div class="col-md-3 col-sm-6" style="width:287.5px;height:300px;">
 
-                  <img src="<%= image.url %>" class="img-responsive" style="width:287.5px;height:300px;"/>
+                  <img src="<%= image.url %>" class="img-responsive" style="width:287.5px;height:275px;"/>
                 </div>
               <% end%>
             </div>
@@ -109,5 +112,5 @@
       </div>
     </div>
    <hr> 
-<h4><a href="/profiles">Back to Profiles</a></h4>
-
+  <div><h4><a href="/profiles">Back to Profiles</a></h4>
+  </div>

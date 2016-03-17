@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
     shipping: params[:shipping], 
     user_id: current_user.id})
 
-    NewItem.new_item(@user).deliver
+    # NewItem.new_item(@user).deliver
 
 
     holder = Holder.find_by(id: params[:holder][:holder_id])

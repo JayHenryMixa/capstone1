@@ -1,9 +1,20 @@
-<h3>All Images</h3>
 
-<hr>
-  <h3>
-    <% @images.each do |image| %>
-      <h3><a href="/images/<%= image.id %>"><img src="<%= image.url %>"></a></h3>
-    <% end %>
-  </h3>
+
+<div class='container'>
+  <div class="img">
+    <div class="img-box-4 text-center">
+      <div class="row">
+        <h2>All Images</h2>
+        <% @images.each do |image| %>
+          <div class="col-md-3 col-sm-6" style="width:287.5px;height:300px;">
+
+            <a href="/images/<%= image.id %>"><img src="<%= image.url %>" class="img-responsive" style="width:287.5px;height:275px;"/>
+          </div>
+        <% end%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
     

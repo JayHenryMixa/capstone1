@@ -6,6 +6,11 @@
       <%= form_tag '/profiles/#{@user.id}', method: :patch do %>
 
       <div>
+        <%= label_tag :Picture %>
+        <%= text_field_tag :user_image %>
+      </div>
+
+      <div>
         <%= label_tag :email %>
         <%= text_field_tag :email, @user.email %>
       </div>
