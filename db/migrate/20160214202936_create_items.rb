@@ -5,7 +5,8 @@ class CreateItems < ActiveRecord::Migration
       t.string :price
       t.string :location
       t.string :shipping
-      t.string :webcam_source
+      t.integer :holder_id
+      t.integer :specimen_id
 
       t.timestamps null: true
     end

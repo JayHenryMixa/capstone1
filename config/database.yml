@@ -51,4 +51,7 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: fragit-app_production
+  database: fd25ug2p2hst42p
+  username: ovzlgflmeuxlpx
+  password: gLiWW4aqxqCaf7F5sVW66KH9Hz
+  host: ec2-54-83-56-177.compute-1.amazonaws.com

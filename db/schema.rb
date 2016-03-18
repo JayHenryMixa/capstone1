@@ -46,13 +46,13 @@ ActiveRecord::Schema.define(version: 20160316013810) do
     t.string   "price",       limit: 255
     t.string   "location",    limit: 255
     t.string   "shipping",    limit: 255
+    t.integer  "holder_id",   limit: 4
     t.integer  "specimen_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id",     limit: 4
     t.integer  "image_id",    limit: 4
     t.string   "name",        limit: 255
-    t.integer  "holder_id",   limit: 4
   end
 
   create_table "requests", force: :cascade do |t|
