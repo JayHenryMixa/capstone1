@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 20160316013810) do
     t.integer  "specimen_id",   limit: 4
     t.string   "date_acquired", limit: 255
     t.string   "sold_to",       limit: 255
+    t.boolean  "active"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.string   "status",        limit: 255
-    t.boolean  "active"
   end
 
   create_table "images", force: :cascade do |t|
