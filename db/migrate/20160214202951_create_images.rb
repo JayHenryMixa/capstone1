@@ -1,7 +1,7 @@
 class CreateImages < ActiveRecord::Migration
   def change
     create_table :images do |t|
-      t.text :file
+      t.integer :user_id 
       t.timestamps null: true
     end
   end
