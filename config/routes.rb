@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   
   post '/search' => "items#search"
 
+  get '/sold_tos/new' => 'sold_tos#new'
+  post '/sold_tos' => 'sold_tos#create'
+
 
   delete '/items/:id' => 'items#destroy'
 

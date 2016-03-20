@@ -10,6 +10,7 @@
         <p>Price: <%= @request.price %></p>
         <p>Location: <%= @request.location %></p>
         <p>Ships? <%= @request.shipping %></p>
+        <p> <p><%= link_to "Edit", "/requests/#{@request.id}/edit"%></p></p>
           <br/>
         <h4><a href="/requests">Back to Index</a></h4>
           </div>

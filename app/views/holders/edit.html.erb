@@ -13,12 +13,21 @@
 
         <p>Add Users Who've Bought Frags</p>    
         
+        
+                
+        <div>
+          <%= label_tag :sold_to %>
+          <%= text_field_tag :sold_to %>
+        </div>
+
+        _____________________
+
         <div>
           <%= label_tag :sold_to %>
           <%= collection_select :user, :user_id, User.all, :id, :last_name %>
         </div>
       
-        <p>Need to find way to store multiple holders, probably create an array, also need to fix now Sold To </p>
+    
       </div>  
     </div>
       <%= submit_tag "Update Specimen Holder" %>

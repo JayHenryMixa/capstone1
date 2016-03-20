@@ -5,12 +5,14 @@
       <div class="col-md-7 col-sm-6 text-center">
         <p class="para-big">Name: <a href="/items"><%= @item.name %></a></p>
         <p>Specimen: <a href="/specimens/<%= @item.specimen.id %>"> <%= @item.specimen.name %></a></p>
-        <p>Lineage Coral: <a href="/holders/<%= @item.holder.id %>"><%= @item.holder.id %></a></p>
+        <p>Lineage Coral: <a href="/holders/<%= @item.holder.id %>"><%= @item.holder_name %></a></p>
+
         <p>User/Poster: <a href="/profiles/<%= @item.user.id %>"><%= @item.user_full_name %></a></p>
         <p>Description: <%= @item.description %></p>
         <p>Price: <%= @item.price %></p>
         <p>Location: <%= @item.location %></p>
         <p>Ships? <%= @item.shipping %></p>
+        <p><%= link_to "Edit", "/items/#{@item.id}/edit"%></p>
               <br/>
         <h4><a href="/items">Back to Index</a></h4>
           </div>
@@ -23,7 +25,6 @@
     </div>
   </div>   
 </div>
-
 
 
 

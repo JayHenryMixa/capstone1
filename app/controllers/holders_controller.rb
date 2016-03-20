@@ -40,14 +40,22 @@ class HoldersController < ApplicationController
 
   def edit 
     @holder = Holder.find(params[:id])
+
+    
+
   end
 
   def update
     @holder = Holder.find(params[:id])
 
+    @sold_to = Sold_to.create({user_id: params[:user_id],
+      holder_id: params[:holder_id]})
+
+    @holder.sold_to = @sold_to
+    @holder.save
 
 
-    @holder.update({sold_to: params[:sold_to]})
+    
 
     flash[:message] = "User has been added to the list of lineage key holders."
     redirect_to "/holders"

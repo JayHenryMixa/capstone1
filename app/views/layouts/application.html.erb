@@ -9,7 +9,7 @@
 
 </head>
 	<body>
-	
+		
 		<!-- Outer Starts -->
 		<div class="outer">
 			
@@ -26,18 +26,6 @@
 						<i class="fa fa-phone color"></i> &nbsp; +1 (815)-245-8834
 					</div>
 					<!-- Contact ends -->
-					
-					<!-- Langauge starts -->
-					<div class="tb-language dropdown pull-right">
-						<a href="#" data-target="#" data-toggle="dropdown"><i class="fa fa-globe"></i> English <i class="fa fa-angle-down color"></i></a>
-						<!-- Dropdown menu with languages -->
-						<ul class="dropdown-menu dropdown-mini" role="menu">
-							<li><a href="#">Hindi</a></li>
-							<li><a href="#">Tamil</a></li>
-							<li><a href="#">Kanada</a></li>
-						</ul>
-					</div>
-					<!-- Language ends -->
 					
 					<!-- Search section for responsive design -->
 					<div class="tb-search pull-left">
@@ -56,14 +44,7 @@
 					</div>
 					<!-- Search section ends -->
 					
-					<!-- Social media starts -->
-					<div class="tb-social pull-right">
-						<div class="brand-bg text-right">
-							<!-- Brand Icons -->
-							<a href="#" class="facebook"><i class="fa fa-facebook square-2 rounded-1"></i></a>
-							<a href="#" class="pinterest"><i class="fa fa-pinterest square-2 rounded-1"></i></a>
-						</div>
-					</div>
+
 					<!-- Social media ends -->
 					
 					<div class="clearfix"></div>
@@ -89,7 +70,7 @@
 
 
 						
-						<div class="col-md-1">
+						<div class="col-md-4">
 							
 							<!-- Search section -->
 							<div class="head-search pull-right">
@@ -108,37 +89,25 @@
 							</div>
 						</div>
 							
-						<div class="col-md-6">
+						<div class="col-md-3">
 					
 							<!-- Navigation starts.  -->
 							<div class="navy">			
 								<ul>
 									<!-- Main menu -->
-									<li><a href="/items">Corals For Sale</a>
+									<li><a href="/items">Explore</a>
 										<!-- Submenu -->
 										<ul>
 											<li><a href="/items" class="black">Available Corals</a></li>
 											<li><a href="/items/new" class="black">Post New Corals</a></li>
 
-										</ul>
-									</li>
-								
-									<li><a href="/requests">Wanted Corals</a>
-										<ul>
 											<li><a href="/requests" class="black">Open Requests</a></li>
-											<li><a href="/requests/new" class="black">New Request</a></li>
-										</ul>
-									</li>
-									
-									<li><a href="/holders">Lineage Coral</a>
-										<ul>
+											<li><a href="/requests/new" class="black">Post New Request</a></li>
+
 											<li><a href="/holders" class="black">Lineages</a></li>
 											<li><a href="/holders/new" class="black">Request New Lineage</a></li>
-										</ul>
-									</li>
-									<li><a href="/images">Images</a>
-										<ul>
-											<li><a href="images">Images</a></li>
+								
+											<li><a href="/images">Images</a></li>
 										</ul>
 									</li>
 									<li><a href="/profiles">Profiles</a>
@@ -152,12 +121,11 @@
 											<% end %>
 											
 											<!--Needs more work -->
-											<li><a href="/profiles">Your Profile</a>
-											<li><a href="/items/">Your Items</a>
-											<li><a href="/requests/">Your Requests</a>
-											<li><a href="/holders/">Your Lineages</a>
-											<li><a href="/images/">Your Pictures</a></li>
+										
+											<li><a href="/profiles/<%= current_user.id %>">Your Profile</a>
+									
 											<li><a href="/profiles/admin">Admin</a></li>
+											
 										</ul>
 									</li>	
 								</ul>
@@ -222,7 +190,7 @@
 								<!-- Image Box #3 Item -->
 								<div class="img-box-3-item">
 									<div class="img-box-3-icon bg-green">
-										<a href="#"><img src="assets/theme/family_tree_1.png" alt="" class="img-responsive" /></a>
+										<a href="#"><img src="assets/theme/coral_3.jpg" alt="" class="img-responsive" /></a>
 									</div>
 									<h4><a href="/holders">Legacy Corals</a></h4>
 									<div class="bor bg-green"></div>
@@ -233,7 +201,7 @@
 								<!-- Image Box #3 Item -->
 								<div class="img-box-3-item">
 									<div class="img-box-3-icon bg-blue">
-										<a href="#"><img src="assets/theme/person_profile.png" alt="" class="img-responsive" /></a>
+										<a href="#"><img src="assets/theme/coral_4.jpg" alt="" class="img-responsive" /></a>
 									</div>
 									<h4><a href="/profiles">Profiles</a></h4>
 									<div class="bor bg-blue"></div>
@@ -243,10 +211,7 @@
 						</div>	
 					</div>
 					
-					
-
-
-
+				
 
 					<!-- Image Box #3 Ends -->
 					
@@ -700,15 +665,6 @@
 								<h5 class="bold"><i class="fa fa-user"></i>&nbsp;&nbsp;About</h5>
 								<p>The goal for Fragit is to foster an atmosphere of knowledge and experience in the cultivation of ornamental marine animals.</p>
 								<div class="brand-bg">
-									<!-- Social Media Icons -->
-									<a href="#" class="facebook"><i class="fa fa-facebook circle-3"></i></a>
-									<a href="#" class="twitter"><i class="fa fa-twitter circle-3"></i></a>
-									<a href="#" class="google-plus"><i class="fa fa-google-plus circle-3"></i></a>
-									<a href="#" class="linkedin"><i class="fa fa-linkedin circle-3"></i></a>
-									<a href="#" class="pinterest"><i class="fa fa-pinterest circle-3"></i></a>
-								</div>
-								<div class="subscribe-box">
-									<h5 class="bold">Subscribe :</h5>
 									<!-- Form -->
 									<form role="form">
 										<!-- Input Group -->
@@ -749,14 +705,17 @@
 								<div class="foot-item-content">
 									<!-- Foot Recent Image --> 
 									<div class="foot-recent-img">
-	
-										<a href="assets/theme/gallery/small/1.jpg" class="lightbox"><img src="assets/theme/gallery/small/1.jpg" alt="" class="img-responsive img-thumbnail" /></a>
-										<a href="assets/theme/gallery/small/2.jpg" class="lightbox"><img src="assets/theme/gallery/small/2.jpg" alt="" class="img-responsive img-thumbnail" /></a>
-										<a href="assets/theme/gallery/small/3.jpg" class="lightbox"><img src="assets/theme/gallery/small/3.jpg" alt="" class="img-responsive img-thumbnail" /></a>
+										<% Image.all.each do |image| %>											
+										<a href="assets/theme/gallery/small/1.jpg" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
+
+
+										<a href="assets/theme/gallery/small/2.jpg" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
+										<a href="assets/theme/gallery/small/3.jpg" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
+										<% end %>
 									</div>
 									<!-- Foot Recent Image --> 
 									<div class="foot-recent-img">
-										<a href="assets/theme/gallery/small/1.jpg" class="lightbox"><img src="assets/theme/gallery/small/1.jpg" alt="" class="img-responsive img-thumbnail" /></a>
+										<a href="assets/theme/gallery/small/1.jpg" class="lightbox"><img src="" alt="" class="img-responsive img-thumbnail" /></a>
 										<a href="assets/theme/gallery/small/2.jpg" class="lightbox"><img src="assets/theme/gallery/small/2.jpg" alt="" class="img-responsive img-thumbnail" /></a>
 										<a href="assets/theme/gallery/small/3.jpg" class="lightbox"><img src="assets/theme/gallery/small/3.jpg" alt="" class="img-responsive img-thumbnail" /></a>
 									</div>

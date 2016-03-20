@@ -1,10 +1,9 @@
 class ItemMailer < ApplicationMailer
 
   def new_item(item)
-    @item = item
-    @item = item.description
+    @item = item.id
 
-    mail(to: @item.user.email, subject: "Thank You For Posting with Fragit")
-  end
+    mail(to: @user.email, subject: "Thank You For Posting with Fragit")
+  end 
     
 end

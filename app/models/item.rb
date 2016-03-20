@@ -19,4 +19,10 @@ class Item < ActiveRecord::Base
     end
   end
 
+  def holder_name
+    holder.user_full_name
+  
+  end
+
+
 end

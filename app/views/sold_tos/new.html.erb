@@ -1,0 +1,13 @@
+<%= form_tag '/sold_tos', method: :post do %>
+
+  <div>
+    <%= label_tag :holder_id %>
+    <%= text_field_tag :holder_id %>
+  </div>
+
+  <div>
+    <%= label_tag :user_id %>
+    <%= text_field_tag :user_id %>
+  </div>
+
+<% end %>
