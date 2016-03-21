@@ -11,6 +11,8 @@ class HoldersController < ApplicationController
     @holder = Holder.find(params[:id])
 
     @specimen = Specimen.find(params[:id])
+
+   
   end
 
 
@@ -25,6 +27,7 @@ class HoldersController < ApplicationController
   def create
     @holder = Holder.create({user_id: current_user.id,
        date_acquired: params[:date_acquired], 
+       sold_to_id: 0,
        status: "pending"})
 
     @specimen = Specimen.create(name: params[:name],
@@ -39,22 +42,26 @@ class HoldersController < ApplicationController
   end
 
   def edit 
+    # @sold_to = SoldTo.new
+    
     @holder = Holder.find(params[:id])
 
-    
+    @users = User.all
 
   end
 
   def update
     @holder = Holder.find(params[:id])
 
-    @sold_to = Sold_to.create({user_id: params[:user_id],
-      holder_id: params[:holder_id]})
+    @sold_to = SoldTo.create(user_id: params[:user_id],
+      holder_id: @holder.id)
 
-    @holder.sold_to = @sold_to
+    
+
+    @holder.sold_to_id = @sold_to.id
     @holder.save
 
-
+    
     
 
     flash[:message] = "User has been added to the list of lineage key holders."

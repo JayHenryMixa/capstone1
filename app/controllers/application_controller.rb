@@ -9,12 +9,20 @@ class ApplicationController < ActionController::Base
     redirect_to "/" unless current_user && current_user.admin
   end
 
+  # def get_image
+  #   array = []
+  #   Images.all.each do |image|
+  #   array << image
+
+  #    end
+  #     random_image = array.sample
+  # end
+
   protected 
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :first_name << :last_name
   end
-
 
   
 end

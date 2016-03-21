@@ -37,8 +37,9 @@ class ProfilesController < ApplicationController
   end
 
   def admin 
-    
+
   end
+
 
   private
 

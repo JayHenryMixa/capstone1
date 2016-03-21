@@ -4,7 +4,7 @@ class CreateHolders < ActiveRecord::Migration
       t.integer :user_id
       t.integer :specimen_id
       t.string :date_acquired
-      t.string :acquired_from
+      t.integer :sold_to_id
       t.boolean :active
 
       t.timestamps null: false

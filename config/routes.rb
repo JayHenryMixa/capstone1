@@ -5,11 +5,8 @@ Rails.application.routes.draw do
   root 'profiles#index'
 
   get '/profiles/home' => 'profiles#home'
-
   get '/profiles' => 'profiles#index'
-
   get '/profiles/admin' => 'profiles#admin'
-  
   get '/profiles/:id' => 'profiles#show'
   get '/profiles/:id/edit' => 'profiles#edit'
   patch '/profiles/:id' => 'profiles#update'
@@ -19,9 +16,9 @@ Rails.application.routes.draw do
   get '/items/new' => 'items#new'
   post '/items' => 'items#create'
   get '/items/:id' => 'items#show'
-
   get '/items/:id/edit' => 'items#edit'
   patch '/items/:id' => 'items#update'
+  delete '/items/:id' => 'items#destroy'
   
   post '/search' => "items#search"
 
@@ -29,7 +26,6 @@ Rails.application.routes.draw do
   post '/sold_tos' => 'sold_tos#create'
 
 
-  delete '/items/:id' => 'items#destroy'
 
   get '/requests' => 'requests#index'
   get '/requests/new' => 'requests#new'
@@ -49,14 +45,8 @@ Rails.application.routes.draw do
 
   get '/holders' => 'holders#index'
   get '/holders/new' => "holders#new"
-
-
-
   post '/holders' => "holders#create"
-
   get '/holders/pending' => 'holders#pending'
-
-
   get '/holders/:id' => "holders#show"
   get '/holders/:id/edit' => "holders#edit"
   patch '/holders/:id' => "holders#update"
@@ -69,5 +59,10 @@ Rails.application.routes.draw do
   get '/images/:id/edit' => "images#edit"
   patch '/images/:id' => "images#update"
   delete '/images/:id' => 'images#destroy'
+
+  get '/articles' => 'articles#index'
+  get '/articles/new' => 'articles#new'
+  post '/articles' => 'articles#create'
+  get '/articles/:id' => 'articles#show'
 
 end

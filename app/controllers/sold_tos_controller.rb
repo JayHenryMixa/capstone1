@@ -2,6 +2,7 @@ class SoldTosController < ApplicationController
 
   def index
     @sold_tos = Sold_to.all
+  end
 
   def new
     @sold_to = Sold_to.new

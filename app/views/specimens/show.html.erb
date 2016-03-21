@@ -3,11 +3,12 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7 col-sm-6 text-center">
-        <p><%= @specimen.name %></p>
-        <p><%= @specimen.scientific_name %></p>
-        <p><%= @specimen.designation %></p>
+        <p>Common Name: <%= @specimen.name %></p>
+        <p>Scientific Name: <%= @specimen.scientific_name %></p>
+        <p>Coral Type: <%= @specimen.designation %></p>
           <br/>
-        <h4><a href="/specimens">Back to Index</a></h4>
+        <h4><a href="/holders/<%= @specimen.id %>">Back to Specimen Lineage </a></h4>
+        <h4><a href="/specimens">To Specimen Index</a></h4>
       </div>
     </div>
   </div>
