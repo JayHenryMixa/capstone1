@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
+	  
 
 </head>
 	<body>
@@ -321,27 +321,23 @@
 								<div class="foot-item-content">
 									<!-- Foot Recent Image --> 
 									<div class="foot-recent-img">
-										<% Image.first(1).each do |image| %>
+										<% @first_three_images.each do |image| %>
 
-										<a href="/images/1" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
-										<a href="assets/theme/gallery/small/2.jpg" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
-										<a href="assets/theme/gallery/small/3.jpg" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
+										<a href="/images/<%= image.id %>" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
+
 										<% end %>
 									</div>
 									<!-- Foot Recent Image --> 
 
 									<div class="foot-recent-img">
-										<% Image.last(1).each do |image| %>
-										<a href="assets/theme/gallery/small/1.jpg" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
-										<a href="assets/theme/gallery/small/2.jpg" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
-										<a href="assets/theme/gallery/small/3.jpg" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
+										<% @last_three_images.each do |image| %>
+										<a href="/images/<%= image.id %>" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
+
 										<% end %>
 									</div>
-										<% Image.limit(1).each do |image| %>
 									<div class="foot-recent-img">
-										<a href="assets/theme/gallery/small/1.jpg" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
-										<a href="assets/theme/gallery/small/2.jpg" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
-										<a href="assets/theme/gallery/small/3.jpg" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
+										<% @random_three_images.each do |image| %>
+										<a href="/images/<%= image.id %>" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
 										<% end %>
 									</div>
 								</div>
@@ -528,5 +524,13 @@
 		-->
 		<!-- <script src="style-switcher/style-switcher.js"></script> -->
 		
+		<div class="container">
+		  <% flash.each do |key, value| %>
+		    <div class="alert alert-<%= key %>">
+		      <button type="button" class="close" data-dismiss="alert">&times;</button>
+		      <%= value %>
+		    </div>
+		  <% end %>
+		</div>
 	</body>	
 </html>

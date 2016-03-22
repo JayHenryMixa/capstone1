@@ -53,7 +53,7 @@ class HoldersController < ApplicationController
   def update
     @holder = Holder.find(params[:id])
 
-    @sold_to = SoldTo.create(user_id: params[:user_id],
+    @sold_to = SoldTo.create(user_id: params[:user][:user_id],
       holder_id: @holder.id)
 
     

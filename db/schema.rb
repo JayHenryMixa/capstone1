@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321161547) do
+ActiveRecord::Schema.define(version: 20160322003114) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20160321161547) do
     t.integer  "user_id",       limit: 4
     t.integer  "specimen_id",   limit: 4
     t.string   "date_acquired", limit: 255
-    t.integer  "sold_to_id",    limit: 4
     t.boolean  "active"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
@@ -111,5 +110,16 @@ ActiveRecord::Schema.define(version: 20160321161547) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "videos", force: :cascade do |t|
+    t.string   "link",       limit: 255
+    t.string   "title",      limit: 255
+    t.string   "author",     limit: 255
+    t.string   "duration",   limit: 255
+    t.integer  "likes",      limit: 4
+    t.integer  "dislikes",   limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
 end

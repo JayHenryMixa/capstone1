@@ -47,7 +47,8 @@ class ItemsController < ApplicationController
       imagable_type: @item.class.name,
       user_id: current_user.id )
 
-    # ItemMailer.new_item(@user).deliver
+
+    ItemMailer.new_item(@item).deliver_now
 
     
     redirect_to "/items/#{@item.id}"

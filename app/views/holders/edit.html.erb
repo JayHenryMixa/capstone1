@@ -3,31 +3,31 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7 col-sm-6 text-left">
-      <%= form_tag "/holders/#{@holder.id}", method: :patch do %>
+        <%= form_tag "/holders/#{@holder.id}", method: :patch do %>
 
-        <p><%= @holder.user_full_name %></p>
+          <p><%= @holder.user_full_name %></p>
+      
+          <p>Specimen Id: <%= @holder.specimen.name %></p>
     
-        <p>Specimen Id: <%= @holder.specimen.name %></p>
-  
-        <p>Date Acquired: <%= @holder.date_acquired %></p>
+          <p>Date Acquired: <%= @holder.date_acquired %></p>
 
-        <p>Add Users Who've Bought Frags</p>    
-        
+          <p>Add Users Who've Bought Frags</p>    
+            
         
 
 
-        <div>
-          <%= label_tag :sold_to %>
-          <%= collection_select(:user, :user_id, @users, :id, :last_name, prompt: true) %>
-        </div>
+          <div>
+            <%= label_tag :sold_to %>
+            <%= collection_select(:user, :user_id, @users, :id, :last_name, prompt: true) %>
+          </div>
       
     
+          <%= submit_tag "Update Specimen Holder" %>
+        <% end %>
       </div>  
     </div>
-      <%= submit_tag "Update Specimen Holder" %>
   </div>    
 </div>      
-  <% end %>
     
   <div>
     <h3>Retire Lineage Key</h3>

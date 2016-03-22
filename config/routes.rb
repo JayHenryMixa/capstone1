@@ -65,4 +65,8 @@ Rails.application.routes.draw do
   post '/articles' => 'articles#create'
   get '/articles/:id' => 'articles#show'
 
+  get '/videos' => 'videos#index'
+  get '/videos/new' => 'videos#new'
+  post '/videos' => 'videos#create'
+
 end

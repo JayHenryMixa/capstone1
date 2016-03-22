@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :requests
   has_many :images
   has_many :holders
-  # has_many :holders, through: :sold_tos
+  has_many :sold_tos
 
 
   devise :database_authenticatable, :registerable,
