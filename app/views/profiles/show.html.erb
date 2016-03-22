@@ -27,7 +27,7 @@
                   <div class="bor bg-red"></div>
             
                   <h4>Name: <a href="/items/<%= item.id %>"><%= item.name %></a></h4>
-                    <p><%= item.created_at %></p>
+                    <p>Date Posted: <%= item.friendly_created_at %></p>
                 </div>
               </div>
             </div>
@@ -73,7 +73,7 @@
             <div class="row">
               <h2>Your Lineage Keys</h2>
                 <% @user.holders.each do |holder| %>
-                <div class="col-md-3 col-sm-6" style="width:287.5px;height:150px;">
+                <div class="col-md-3 col-sm-6" style="width:287.5px;height:450px;">
 
                   <div class="img-box-4-item">
                  
@@ -83,8 +83,10 @@
       
                       <h4><a href=<%= "/holders/#{holder.id}" %>><%= holder.specimen.name %></a></h4>
                       <div class="bor bg-green"></div>
-                      <h4><a href=<%= "holders/#{holder.sold_to_id}" %>><%= holder.sold_to_id %></a></h4>
 
+                        <% holder.sold_tos.each do |sold_to| %>
+                        <h4><a href="/profiles/<%= sold_to.user_id %>"><%= sold_to.user_full_name %></a></h4>
+                      <% end %>
 
                     </div>
                   </div>

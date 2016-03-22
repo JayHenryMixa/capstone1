@@ -24,5 +24,9 @@ class Item < ActiveRecord::Base
   
   end
 
+  def friendly_created_at
+    created_at.strftime(" %b %e, %Y")
+  end
+
 
 end

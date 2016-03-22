@@ -5,9 +5,15 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :footer_images
+  before_action :footer_articles
 
   def authenticate_admin!
     redirect_to "/" unless current_user && current_user.admin
+  end
+  
+  def footer_articles
+    articles = Article.all
+    @random_four_articles = articles.sample(4)
   end
 
   def footer_images

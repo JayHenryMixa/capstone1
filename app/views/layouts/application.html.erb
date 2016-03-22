@@ -105,7 +105,7 @@
 											<li><a href="/requests/new" class="black">Post New Request</a></li>
 
 											<li><a href="/holders" class="black">Lineages</a></li>
-											<li><a href="/holders/new" class="black">Request New Lineage</a></li>
+							
 											<li><a href="/articles" class="black">Articles</a></li>
 											<li><a href="/images">Images</a></li>
 										</ul>
@@ -301,13 +301,11 @@
 								<h5 class="bold"><i class="fa fa-comments"></i>&nbsp;&nbsp;Recent Posts</h5>
 								<!-- Foot Item Content -->
 								<div class="foot-item-content">
-									<ul class="list-unstyled">
+									<ul>	
 										<!-- Link -->
-										<li><a href="#">Denocing Sapientes Contain</a></li>
-										<li><a href="#">Dignissim Electronic Typeset</a></li>
-										<li><a href="#">Laborum Desktop Publishing</a></li>
-										<li><a href="#">Quibus PageMaker Including</a></li>
-										<li><a href="#">Denocing Sapientes Contain</a></li>
+										<% @random_four_articles.each do |article| %>
+										<li><a href="/articles/<%= article.id %>"><%= article.name %></a></li>
+										<% end %>
 									</ul>
 								</div>
 							</div>
