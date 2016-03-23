@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
       user_id: current_user.id )
 
 
-    ItemMailer.new_item(@item).deliver_now
+    # ItemMailer.new_item(@item).deliver_now
 
     
     redirect_to "/items/#{@item.id}"

@@ -6,8 +6,12 @@
           <p>Specimen Id: <a href="/specimens/<%= @holder.specimen.id %>"><%= @holder.specimen.name %></a></p>
           <p>User Id: <a href="/profiles/<%= @holder.user.id %>"><%= @holder.user_full_name %></a></p>
           <p>Date Acquired: <%= @holder.date_acquired %></p>
-          <p>Sold To: <%= @holder.sold_to_id %></p>
+
+          <% @holder.sold_tos.each do |sold_to| %>
+          <p>Sold To: <a href="/profiles/<%= sold_to.user_id %>"><%= sold_to.user_full_name %></a></p>
+          <% end %>
           <br/>
+
           <h4><a href="/holders">Back to Index of  Fragit Lineages </a></h4>
           <h4><%= link_to "Edit", "/holders/#{@holder.id}/edit", class: "btn btn-edit" %></h4>
         </div>

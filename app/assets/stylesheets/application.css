@@ -50,7 +50,7 @@
  *= require theme/vcard
  *= require theme/wedding
  *= require theme/style-switcher
- *= require_tree .
+ *= require_tree 
  *= require_self
  */
 

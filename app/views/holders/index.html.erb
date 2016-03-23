@@ -10,7 +10,7 @@
     <hr>
         <div>
           <% @holders.each do |holder| %>
-            <div class="col-md-3 col-sm-6" style="width:287.5px;height:300px;">
+            <div class="col-md-3 col-sm-6" style="width:287.5px;height:350px;">
 
               <div class="img-box-4-content">
    
@@ -18,10 +18,10 @@
                   <p>User: <a href="/holders/<%= holder.id %>"><%= holder.user_full_name %></a></p>
                   <p>Specimen ID: <a href="/holders/<%= holder.specimen.id %>"><%= holder.specimen.name %></a></p>
                   <p>Date Acquired: <%= holder.date_acquired %></p>
-            
-                  <% holder.sold_tos.each do |sold_to| %>
-                <a href="/profiles/<%= sold_to.user_id %>"><%= sold_to.user_full_name %></a>
-              <% end %>
+                 
+                  <p>Divisions: <%= holder.sold_tos.length %></p>
+
+
               </div>
             </div>   
             <div>

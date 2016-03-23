@@ -18,8 +18,8 @@ class ApplicationController < ActionController::Base
 
   def footer_images
     images = Image.all
-    @first_three_images = images.first(3)
-    @last_three_images = images.last(3)
+    @first_three_images = images.sample(3)
+    @last_three_images = images.sample(3)
     @random_three_images = images.sample(3)
   end
 

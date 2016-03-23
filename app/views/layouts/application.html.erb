@@ -25,6 +25,9 @@
 						<!-- Phone -->
 						<i class="fa fa-phone color"></i> &nbsp; +1 (815)-245-8834
 					</div>
+					<div class="pull-right">
+						"Social media for your aquarium..."
+						</div>
 					<!-- Contact ends -->
 					
 					<!-- Search section for responsive design -->
@@ -99,13 +102,8 @@
 										<!-- Submenu -->
 										<ul>
 											<li><a href="/items" class="black">Available Corals</a></li>
-											<li><a href="/items/new" class="black">Post New Corals</a></li>
-
 											<li><a href="/requests" class="black">Open Requests</a></li>
-											<li><a href="/requests/new" class="black">Post New Request</a></li>
-
 											<li><a href="/holders" class="black">Lineages</a></li>
-							
 											<li><a href="/articles" class="black">Articles</a></li>
 											<li><a href="/images">Images</a></li>
 										</ul>
@@ -115,7 +113,9 @@
 											<% if current_user %>
 											<li><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
 											<li><a href="/profiles/<%= current_user.id %>">Your Profile</a>
-											
+											<li><a href="/items/new" class="black">Post New Corals</a></li>
+											<li><a href="/requests/new" class="black">Post New Request</a></li>
+
 											<% else %>
 											<li><%= link_to "Sign Up", "/users/sign_up" %></li>
 											<li><%= link_to "Sign In", "/users/sign_in" %></li>
@@ -123,8 +123,9 @@
 											
 											<!--Needs more work -->
 										
-									
+											<% if current_user && current_user.admin %>
 											<li><a href="/profiles/admin">Admin</a></li>
+											<% end %>
 											
 										</ul>
 									</li>	
@@ -156,7 +157,7 @@
 					<br />
 					<div class="text-center">
 						<h3><!-- <span class="color">Fragit</span>.  -->How do you aquaculture? <!-- <span class="color">Literally</span>. --></h3>
-						<p>Fragit is the one-stop resource for coral growers everwhere!</p>
+						<p>Fragit is the resource to connect with coral growers everwhere!</p>
 					</div>
 					<div class="divider-1"></div>
 					
@@ -168,7 +169,7 @@
 								<!-- Image Box #3 Item -->
 								<div class="img-box-3-item">
 									<div class="img-box-3-icon bg-red">
-										<a href="#"><img src="/assets/theme/coral_1.jpg" alt="" class="img-responsive" /></a>
+										<a href="/items"><img src="/assets/theme/coral_1.jpg" alt="" class="img-responsive" /></a>
 									</div>
 									<h4><a href="/items">For Sale</a></h4>
 									<div class="bor bg-red"></div>
@@ -179,7 +180,7 @@
 								<!-- Image Box #3 Item -->
 								<div class="img-box-3-item">
 									<div class="img-box-3-icon bg-lblue">
-										<a href="#"><img src="/assets/theme/coral.jpg" alt="" class="img-responsive" /></a>
+										<a href="/requests"><img src="/assets/theme/coral.jpg" alt="" class="img-responsive" /></a>
 									</div>
 									<h4><a href="/requests">Wanted</a></h4>
 									<div class="bor bg-lblue"></div>
@@ -190,7 +191,7 @@
 								<!-- Image Box #3 Item -->
 								<div class="img-box-3-item">
 									<div class="img-box-3-icon bg-green">
-										<a href="#"><img src="/assets/theme/coral_3.jpg" alt="" class="img-responsive" /></a>
+										<a href="holders"><img src="/assets/theme/coral_3.jpg" alt="" class="img-responsive" /></a>
 									</div>
 									<h4><a href="/holders">Legacy Corals</a></h4>
 									<div class="bor bg-green"></div>
@@ -201,7 +202,7 @@
 								<!-- Image Box #3 Item -->
 								<div class="img-box-3-item">
 									<div class="img-box-3-icon bg-blue">
-										<a href="#"><img src="/assets/theme/coral_4.jpg" alt="" class="img-responsive" /></a>
+										<a href="/profiles"><img src="/assets/theme/coral_4.jpg" alt="" class="img-responsive" /></a>
 									</div>
 									<h4><a href="/profiles">Profiles</a></h4>
 									<div class="bor bg-blue"></div>
@@ -301,12 +302,13 @@
 								<h5 class="bold"><i class="fa fa-comments"></i>&nbsp;&nbsp;Recent Posts</h5>
 								<!-- Foot Item Content -->
 								<div class="foot-item-content">
-									<ul>	
+									
 										<!-- Link -->
 										<% @random_four_articles.each do |article| %>
-										<li><a href="/articles/<%= article.id %>"><%= article.name %></a></li>
+										<p><a href="/articles/<%= article.id %>"><%= article.name %></a></p>
+										<br>
 										<% end %>
-									</ul>
+								
 								</div>
 							</div>
 						</div>
@@ -321,7 +323,7 @@
 									<div class="foot-recent-img">
 										<% @first_three_images.each do |image| %>
 
-										<a href="/images/<%= image.id %>" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
+										<a href="/images/<%= image.id %>" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" style="width:75px;height:75px;" /></a>
 
 										<% end %>
 									</div>
@@ -329,13 +331,13 @@
 
 									<div class="foot-recent-img">
 										<% @last_three_images.each do |image| %>
-										<a href="/images/<%= image.id %>" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
+										<a href="/images/<%= image.id %>" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" style="width:75px;height:75px;" /></a>
 
 										<% end %>
 									</div>
 									<div class="foot-recent-img">
 										<% @random_three_images.each do |image| %>
-										<a href="/images/<%= image.id %>" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" /></a>
+										<a href="/images/<%= image.id %>" class="lightbox"><img src="<%= image.url %>" alt="" class="img-responsive img-thumbnail" style="width:75px;height:75px;" /></a>
 										<% end %>
 									</div>
 								</div>

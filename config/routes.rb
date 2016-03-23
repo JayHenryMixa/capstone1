@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   devise_for :users
-  root 'profiles#index'
+  root 'profiles#home'
 
   get '/profiles/home' => 'profiles#home'
   get '/profiles' => 'profiles#index'
