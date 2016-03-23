@@ -22,7 +22,8 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @user = User.update({email: params[:email], 
+    @user = User.update({user_image: params[:user_image],
+      email: params[:email], 
       first_name: params[:first_name], 
       last_name: params[:last_name]})
   
