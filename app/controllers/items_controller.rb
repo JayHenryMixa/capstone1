@@ -78,7 +78,7 @@ class ItemsController < ApplicationController
   
     redirect_to "/items"
   end
-#limit to only user and admin deleting requests
+
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
@@ -89,8 +89,9 @@ class ItemsController < ApplicationController
   def search
     # if params[:search_type] == "item"
 
-      @items = Item.where("description LIKE ?", "%#{params[:search]}%")
-      # render :index
+      @items = Item.where("name LIKE ?", "%#{params[:search]}%")
+    
+    # render :index
     # elsif params[:search_type] == "requests"
     #   @requests = Request.search(params[:queery_data])
     #   render 'requests/index'

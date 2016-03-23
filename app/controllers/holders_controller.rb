@@ -40,6 +40,13 @@ class HoldersController < ApplicationController
     flash[:success] = "Your Request has been submitted for review."
     redirect_to "/holders"
   end
+  
+  def pending
+    @holders = Holder.all.where(status: "pending")
+
+    # @holder.update({status: params[:status]})
+  
+  end
 
   def edit 
     # @sold_to = SoldTo.new
@@ -53,12 +60,13 @@ class HoldersController < ApplicationController
   def update
     @holder = Holder.find(params[:id])
 
+    
     @sold_to = SoldTo.create(user_id: params[:user][:user_id],
       holder_id: @holder.id)
 
     
 
-    @holder.sold_to_id = @sold_to.id
+    
     @holder.save
 
     
@@ -75,9 +83,6 @@ class HoldersController < ApplicationController
     redirect_to '/holders'
   end
 
-  def pending
-    @holders = Holder.all.where(status: "pending")
-  end
 
   def check_item_user_credentials!
     holder = Holder.find(params[:id])

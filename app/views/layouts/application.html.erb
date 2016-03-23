@@ -20,10 +20,10 @@
 					<!-- Contact starts -->
 					<div class="tb-contact pull-left">
 						<!-- Email -->
-						<i class="fa fa-envelope color"></i> &nbsp; <a href="mailto:contact@domain.com">jmixa6@gmail.com</a>
+						<i class="fa fa-envelope" id="envelope-color"></i> &nbsp; <a href="mailto:contact@domain.com">jmixa6@gmail.com</a>
 						&nbsp;&nbsp;  
 						<!-- Phone -->
-						<i class="fa fa-phone color"></i> &nbsp; +1 (815)-245-8834
+						<i class="fa fa-phone" id="phone-color"></i> &nbsp; +1 (815)-245-8834
 					</div>
 					<div class="pull-right">
 						"Social media for your aquarium..."
@@ -31,20 +31,20 @@
 					<!-- Contact ends -->
 					
 					<!-- Search section for responsive design -->
-					<div class="tb-search pull-left">
+<!-- 					<div class="tb-search pull-left">
 						<a href="#" class="b-dropdown"><i class="fa fa-search square-2 rounded-1 bg-color white"></i></a>
 						<div class="b-dropdown-block">
-							<form role="form">
+							<form role="form"> -->
 								<!-- Input Group -->
-								<div class="input-group">
+	<!-- 							<div class="input-group">
 									<input type="text" class="form-control" placeholder="Type Something">
 									<span class="input-group-btn">
-										<button class="btn btn-color" type="button">Search</button>
+										<button class="btn btn-color" type="button" >Search</button>
 									</span>
 								</div>
 							</form>
 						</div>
-					</div>
+					</div> -->
 					<!-- Search section ends -->
 					
 
@@ -65,7 +65,7 @@
 						<div class="col-md-2">
 							<!-- Logo section -->
 							<div class="logo">
-								<h1><a href="/"><i class="fa fa-laptop"></i>Fragit</a></h1>
+								<h1><a href="/"><i class="fa fa-arrow-circle-right" id="item-color"></i>Fragit</a></h1>
 							</div>
 						</div>
 						<div class="col-md-3">
@@ -77,18 +77,21 @@
 							
 							<!-- Search section -->
 							<div class="head-search pull-right">
-								<a href="#" class="b-dropdown"><i class="fa fa-search square-2 rounded-1 bg-color white"></i></a>
-								<div class="b-dropdown-block">
-									<form role="form">
-										<!-- Input Group -->
-										<div class="input-group">
-											<input type="text" class="form-control" placeholder="Type Something">
-											<span class="input-group-btn">
-												<button class="btn btn-color" type="button">Search</button>
-											</span>
+										<div>
+										<%= form_tag "/search", class: "navbar-form navbar-left" do %>
+										  <%= text_field_tag :search, nil, placeholder: "Search" %>
+										  <%= submit_tag "Search!" %>
+										<% end %>
 										</div>
-									</form>
-								</div>
+								
+									<!-- <form role="form"> -->
+										<!-- Input Group -->
+										
+										<!-- <div class="input-group"> -->
+								<!-- 			<input type="text" class="form-control" placeholder="Type Something">
+											<span class="input-group-btn"> -->
+							
+									
 							</div>
 						</div>
 							
@@ -281,18 +284,18 @@
 								<!-- Heading -->
 								<h5 class="bold"><i class="fa fa-user"></i>&nbsp;&nbsp;About</h5>
 								<p>The goal for Fragit is to foster an atmosphere of knowledge and experience in the cultivation of ornamental marine animals.</p>
-								<div class="brand-bg">
+					<!-- 			<div class="brand-bg"> -->
 									<!-- Form -->
-									<form role="form">
+							<!-- 		<form role="form"> -->
 										<!-- Input Group -->
-										<div class="input-group">
+<!-- 										<div class="input-group">
 											<input type="text" class="form-control" placeholder="Enter Email Id">
 											<span class="input-group-btn">
 												<button class="btn btn-color" type="button">Subscribe</button>
 											</span>
 										</div>
 									</form>
-								</div>
+								</div> -->
 							</div>
 						</div>	
 						<div class="col-md-3 col-sm-6">
@@ -376,14 +379,7 @@
 					<!-- Footer Content -->
 						<!-- Paragraph -->
 						<p class="pull-left">Copyright &copy; 2016 - <a href="/profiles/home">Fragit</a></p>
-						<ul class="list-inline pull-right">
-							<!-- List -->
-							<li><a href="index.html">Home</a><li>
-							<li><a href="service.html">Service</a></li>
-							<li><a href="feature.html">Features</a></li>
-							<li><a href="about-us.html">About</a></li>
-							<li><a href="contact-us.html">Contact</a></li>
-						</ul>
+
 						<!-- Clearfix -->
 						<div class="clearfix"></div>
 				</div>

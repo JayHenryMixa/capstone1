@@ -68,6 +68,8 @@ class RequestsController < ApplicationController
     redirect_to '/requests'
   end
 
+
+
   private
 
   def check_item_user_credentials!

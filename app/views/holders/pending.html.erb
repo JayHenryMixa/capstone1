@@ -1,27 +1,37 @@
 <h3>Pending Lineage Key Requests</h3>
+<h4><a href="/profiles/admin">Back To Admin Page</a></h4>
 <div class='container'>
   <div class="img-box-4 text-center">
     <div class="row">
 
-    <% @holders.each do |holder| %>
+      <% @holders.each do |holder| %>
       <div class="col-md-3 col-sm-6" style="width:287.5px;height:300px;">
 
         <div class="bor bg-green"></div>
 
       
-        <p>Specimen ID: <%= holder.specimen.name %> 
-        <%= link_to "Delete", "/holders/#{holder.id}", class: "btn btn-delete", method: :delete %></p>
+          <p>Specimen ID: <%= holder.specimen.name %> 
+          <%= link_to "Delete", "/holders/#{holder.id}", class: "btn btn-delete", method: :delete %></p>
 
-        <p>User: <a href="/holders/<%= holder.id %>"><%= holder.user_full_name %></a></p>
+          <p>User: <a href="/holders/<%= holder.id %>"><%= holder.user_full_name %></a></p>
 
+          <p>Date Acquired: <%= holder.date_acquired %></p>
 
-        <p>Specimen Status: <%= holder.status %></p>
-        <p>Date Acquired: <%= holder.date_acquired %></p>
-        <p>Sold To: <%= holder.sold_to %></p>
+          <p>Specimen Status: <%= holder.status %></p>
+        
+        
+          <div>
+            <%= label_tag :status %>
+            <%= text_field_tag :status %>
+          </div>
+            <div>
+              <%= submit_tag "Edit Item" %>
       
+            </div>
+        </div>
+      <% end %>
       </div>
-    <% end %>
-        <h1> Need an edit key to change status to "active""</h1>
+        
     </div>
   </div>
 </div>
