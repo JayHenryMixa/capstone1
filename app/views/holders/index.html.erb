@@ -15,8 +15,8 @@
               <div class="img-box-4-content">
    
                 <div class="bor bg-green"></div>
-                  <p>User: <a href="/holders/<%= holder.id %>"><%= holder.user_full_name %></a></p>
-                  <p>Specimen ID: <a href="/holders/<%= holder.specimen.id %>"><%= holder.specimen.name %></a></p>
+                  <p>User: <a href="/profiles/<%= holder.user.id %>"><%= holder.user_full_name %></a></p>
+                  <p>Name of Strain/Lineage: <a href="/holders/<%= holder.specimen.id %>"><%= holder.specimen.name %></a></p>
                   <p>Date Acquired: <%= holder.date_acquired %></p>
                  
                   <p>Divisions: <%= holder.sold_tos.length %></p>
@@ -28,4 +28,3 @@
       </div>
     </div>
   </div>
-</div>

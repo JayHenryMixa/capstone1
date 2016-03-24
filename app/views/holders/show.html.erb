@@ -1,10 +1,11 @@
 <div class="block-heading-two">
-  <h3><span>Specimen Lineage Show</span></h3>
+  <h3><span>Name of Strain/Lineage Show</span></h3>
     <div class="container">
       <div class="row">
         <div class="col-md-7 col-sm-6 text-center">
-          <p>Specimen Id: <a href="/specimens/<%= @holder.specimen.id %>"><%= @holder.specimen.name %></a></p>
+          <p>Strain/Lineage: <a href="/specimens/<%= @holder.specimen.id %>"><%= @holder.specimen.name %></a></p>
           <p>User Id: <a href="/profiles/<%= @holder.user.id %>"><%= @holder.user_full_name %></a></p>
+          
           <p>Date Acquired: <%= @holder.date_acquired %></p>
 
           <% @holder.sold_tos.each do |sold_to| %>
@@ -13,7 +14,7 @@
           <br/>
 
           <h4><a href="/holders">Back to Index of  Fragit Lineages </a></h4>
-          <h4><%= link_to "Edit", "/holders/#{@holder.id}/edit", class: "btn btn-edit" %></h4>
+          <h4>If this is your posting:<%= link_to "Edit", "/holders/#{@holder.id}/edit", class: "btn btn-edit" %></h4>
         </div>
       </div>  
     </div>
