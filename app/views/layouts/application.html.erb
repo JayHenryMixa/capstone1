@@ -101,7 +101,7 @@
 							<div class="navy">			
 								<ul>
 									<!-- Main menu -->
-									<li><a href="/items">Explore</a>
+									<li><a href="/items" id="explore-color">Explore</a>
 										<!-- Submenu -->
 										<ul>
 											<li><a href="/items" class="black">Available Corals</a></li>
@@ -112,7 +112,7 @@
 											<li><a href="/images">Images</a></li>
 										</ul>
 									</li>
-									<li><a href="#">Profiles</a>
+									<li><a href="#" id="profile-color">Profile</a>
 										<ul>
 											<% if current_user %>
 											<li><%= link_to "Sign Out", "/users/sign_out", method: :delete %></li>
