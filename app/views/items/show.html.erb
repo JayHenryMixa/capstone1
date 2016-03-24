@@ -15,11 +15,12 @@
 
         <p>If this is your posting: <%= link_to "Edit", "/items/#{@item.id}/edit"%></p>
               <br/>
+              
         <h4><a href="/items">Back to Index</a></h4>
           </div>
             <div class="col-md-5 col-sm-6 text-left">
               <% @item.images.each do |image| %>
-              <a href="/image/<%= image.id %>"><img src="<%= image.url %>"  alt="" style="width:300px;height:300px;"/></a>
+              <a href="/images/<%= image.id %>"><img src="<%= image.url %>"  alt="" style="width:350px;height:350px;"/></a>
               <% end %>
             </div>  
       </div>

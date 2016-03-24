@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
     @item = Item.create({name: params[:name], 
       description: params[:description],
     price: params[:price], 
-    location: params[:location], 
+    location: current_user.location, 
     shipping: params[:shipping], 
     user_id: current_user.id})
 
