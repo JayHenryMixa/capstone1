@@ -18,4 +18,8 @@ class Request < ActiveRecord::Base
     end
   end
 
+  def friendly_created_at
+    created_at.strftime(" %b %e, %Y")
+  end
+
 end
